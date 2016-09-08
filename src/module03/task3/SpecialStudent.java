@@ -4,8 +4,6 @@ public class SpecialStudent extends CollegeStudent {
     private long secretKey;
     private String email;
 
-    SpecialStudent() {}
-
     public SpecialStudent(String firstName, String lastName, int group) {
         super(firstName, lastName, group);
     }
@@ -15,6 +13,7 @@ public class SpecialStudent extends CollegeStudent {
     }
 
     public SpecialStudent(long secretKey) {
+        super(null, null, 0);
         this.secretKey = secretKey;
     }
 

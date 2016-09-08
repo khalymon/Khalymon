@@ -94,15 +94,14 @@ public class Task1 {
     }
 
     static int secondLargest(int[] array) {
-        int firstLargest = max(array);
-        int toReturn = -firstLargest;
+        int firstLargest = Integer.MIN_VALUE;
+        int toReturn = Integer.MIN_VALUE;
+
         for (int i : array) {
-            if (i < firstLargest) {
-                toReturn = i;
-                break;
+            if (i > firstLargest) {
+                toReturn = firstLargest;
+                firstLargest = i;
             }
-        }
-        for (int i : array) {
             if ((toReturn < i) && (i < firstLargest)) {
                 toReturn = i;
             }
@@ -111,15 +110,14 @@ public class Task1 {
     }
 
     static double secondLargest(double[] array) {
-        double firstLargest = max(array);
-        double toReturn = -1;
+        double firstLargest = Double.MIN_VALUE;
+        double toReturn = Double.MIN_VALUE;
+
         for (double i : array) {
-            if (i < firstLargest) {
-                toReturn = i;
-                break;
+            if (i > firstLargest) {
+                toReturn = firstLargest;
+                firstLargest = i;
             }
-        }
-        for (double i : array) {
             if ((toReturn < i) && (i < firstLargest)) {
                 toReturn = i;
             }

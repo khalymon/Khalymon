@@ -1,24 +1,29 @@
 package module02;
 
 public class Task2 {
+    public static final double commission = 0.05;
+
     static double withdrawBalance(double balance, double withdrawal) {
-        double commission = 0.05;
-        double balanceAfterWithdrawal = balance - (commission+1)*withdrawal;
-        if(balanceAfterWithdrawal < 0) {
-            System.out.println("NO");
-            balanceAfterWithdrawal = -1;
-        }
-        else System.out.println("OK " + commission*withdrawal + " " + balanceAfterWithdrawal);
-        return balanceAfterWithdrawal;
+        return balance - (commission + 1) * withdrawal;
     }
 
     public static void main(String[] args) {
         int balance = 100;
         int withdrawal = 10;
-        withdrawBalance(balance, withdrawal);
+        double balanceAfterWithdrawal = withdrawBalance(balance, withdrawal);
+        if (balanceAfterWithdrawal < 0) {
+            System.out.println("NO");
+        } else {
+            System.out.println("OK " + commission * withdrawal + " " + balanceAfterWithdrawal);
+        }
 
         balance = 100;
         withdrawal = 99;
-        withdrawBalance(balance, withdrawal);
+        balanceAfterWithdrawal = withdrawBalance(balance, withdrawal);
+        if (balanceAfterWithdrawal < 0) {
+            System.out.println("NO");
+        } else {
+            System.out.println("OK " + commission * withdrawal + " " + balanceAfterWithdrawal);
+        }
     }
 }

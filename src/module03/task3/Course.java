@@ -8,8 +8,6 @@ public class Course {
     private int hoursDuration;
     private String teacherName;
 
-    public Course() {}
-
     public Course(Date startDate, String name){
         this.startDate = startDate;
         this.name = name;
