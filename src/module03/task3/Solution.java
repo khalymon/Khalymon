@@ -1,9 +1,20 @@
 package module03.task3;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Solution {
+
+
     public static void main(String[] args) {
-        Course course01 = new Course(new Date("09/01/1996"), "Chemistry");
+        /*
+        1. new Date("10/01/1996") is deprecated
+        2. Удалить не правильные конструкторы и переделать под новые,
+           что я сделал или сделать свои конструкторы по образу и подобию
+         */
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2016, Calendar.SEPTEMBER, 9, 10, 11);
+        Course course01 = new Course(calendar.getTime(), "Chemistry");
+//        Course course01 = new Course(new Date("09/01/1996"), "Chemistry");
         Course course02 = new Course(new Date("10/01/1996"), "Biology");
         Course course03 = new Course(16, "English", "Jameson");
         Course course04 = new Course(16, "Philosophy", "Wesson");
