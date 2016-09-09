@@ -4,12 +4,11 @@ import java.util.Calendar;
 
 public class Solution {
     public static void main(String[] args) {
-        Calendar calendar1 = Calendar.getInstance();
-        Calendar calendar2 = Calendar.getInstance();
-        calendar1.set(96, 9, 1);
-        calendar2.set(96, 10, 1);
-        Course course01 = new Course(calendar1.getTime(), "Chemistry");
-        Course course02 = new Course(calendar2.getTime(), "Biology");
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(96, 9, 1);     // Sept. 1, 1996
+        Course course01 = new Course(calendar.getTime(), "Chemistry");
+        calendar.set(96, 10, 1);    // Oct. 1, 1996
+        Course course02 = new Course(calendar.getTime(), "Biology");
 
         Course course03 = new Course(16, "English", "Jameson");
         Course course04 = new Course(16, "Philosophy", "Wesson");
