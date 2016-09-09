@@ -5,7 +5,7 @@ public class Task2 {
     /*
     Обычно модификатор доступа у финальной статической переменной private
      */
-    public static final double commission = 0.05;
+    private static final double commission = 0.05;
 
     /*
     Хорошо, правда есть куда улучшить

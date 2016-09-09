@@ -5,7 +5,11 @@ public class Task3 {
     /*
     Обычно модификатор доступа у финальной статической переменной private
      */
-    public static final double commission = 0.05;
+    private static final double commission = 0.05;
+
+    private static double getCommission(double withdrawal) {
+        return withdrawal * commission;
+    }
 
     /*
     Да это уже то решение которое хотелось увидеть
@@ -27,30 +31,45 @@ public class Task3 {
                 break;
             }
         }
+        if (ownerID == -1) {
+            return -1;
+        }
 //        End метод поиска индекса
 
         double balance = balances[ownerID];
 //      метод из предыдущего задания  withdrawBalance(double balance, double withdrawal)
-        return balance - (commission + 1) * withdrawal;
+        //       return balance - (commission + 1) * withdrawal;
+        return balance - withdrawal - getCommission(withdrawal);
     }
 
     public static void main(String[] args) {
-        String ownerName = "Ann";
+        String ownerName = "Ann";       //існує в масиві, має достатньо коштів
         double withdrawal = 100;
         double balanceAfterWithdrawal = withdrawBalance(ownerName, withdrawal);
 
         System.out.print(ownerName + " ");
         if (balanceAfterWithdrawal < 0) {
-//            System.out.println("NO");
-            System.out.println(ownerName + " NO");
+            System.out.println("NO");
+            //    System.out.println(ownerName + " NO");
         } else {
-//            System.out.println((int) withdrawal + " " + (int) balanceAfterWithdrawal);
+            System.out.println((int) withdrawal + " " + (int) balanceAfterWithdrawal);
 //          В условии было написано выводить "Print name + NO of withdrawal fs not possible
 //          and name + sum of withdrawal + balance after withdrawal in other case."
-            System.out.println(ownerName + " " + withdrawal + " " + balanceAfterWithdrawal);
+            //           System.out.println(ownerName + " " + withdrawal + " " + balanceAfterWithdrawal);
         }
 
-        ownerName = "Oww";
+        ownerName = "Oww";      //існує в масиві, має недостатньо коштів
+        withdrawal = 490;
+        balanceAfterWithdrawal = withdrawBalance(ownerName, withdrawal);
+
+        System.out.print(ownerName + " ");
+        if (balanceAfterWithdrawal < 0) {
+            System.out.println("NO");
+        } else {
+            System.out.println((int) withdrawal + " " + (int) balanceAfterWithdrawal);
+        }
+
+        ownerName = "Owl"; //не існує (!) в масиві
         withdrawal = 490;
         balanceAfterWithdrawal = withdrawBalance(ownerName, withdrawal);
 

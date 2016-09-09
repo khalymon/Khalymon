@@ -133,8 +133,8 @@ public class Task1 {
     }
 
     static double secondLargest(double[] array) {
-        double firstLargest = Double.MIN_VALUE;
-        double toReturn = Double.MIN_VALUE;
+        double firstLargest = -Double.MAX_VALUE;
+        double toReturn = -Double.MAX_VALUE;
 
         for (double i : array) {
             if (i > firstLargest) {
