@@ -15,13 +15,31 @@ public class Task4 {
                 break;
             }
         }
+        if (ownerID == -1) {
+            return -1;
+        }
         return balances[ownerID] + fund;
     }
 
     public static void main(String[] args) {
-        String ownerName = "Oww";
+        String ownerName = "Oww";   //існує в масиві
         double fund = 100;
         double balanceAfterFunding = fundBalance(ownerName, fund);
-        System.out.println(ownerName + " " + (int) balanceAfterFunding);
+        if(balanceAfterFunding < 0) {
+            System.out.println(ownerName + " NO");
+        }
+        else {
+            System.out.println(ownerName + " " + (int) balanceAfterFunding);
+        }
+
+        ownerName = "Owl";  //не існує (!) в масиві
+        fund = 100;
+        balanceAfterFunding = fundBalance(ownerName, fund);
+        if(balanceAfterFunding < 0) {
+            System.out.println(ownerName + " NO");
+        }
+        else {
+            System.out.println(ownerName + " " + (int) balanceAfterFunding);
+        }
     }
 }
