@@ -1,7 +1,6 @@
 package module02;
 
 public class Task3 {
-
     /*
     Обычно модификатор доступа у финальной статической переменной private
      */
