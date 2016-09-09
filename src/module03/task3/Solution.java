@@ -1,10 +1,16 @@
 package module03.task3;
-import java.util.Date;
+
+import java.util.Calendar;
 
 public class Solution {
     public static void main(String[] args) {
-        Course course01 = new Course(new Date("09/01/1996"), "Chemistry");
-        Course course02 = new Course(new Date("10/01/1996"), "Biology");
+        Calendar calendar1 = Calendar.getInstance();
+        Calendar calendar2 = Calendar.getInstance();
+        calendar1.set(96, 9, 1);
+        calendar2.set(96, 10, 1);
+        Course course01 = new Course(calendar1.getTime(), "Chemistry");
+        Course course02 = new Course(calendar2.getTime(), "Biology");
+
         Course course03 = new Course(16, "English", "Jameson");
         Course course04 = new Course(16, "Philosophy", "Wesson");
         Course course05 = new Course(32, "Mathematics", "Smith");
