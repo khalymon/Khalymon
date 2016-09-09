@@ -1,6 +1,10 @@
 package module02;
 
 public class Task4 {
+
+/*
+    Посмотри замечания (минусы) к третьему заданию, они почти все сюда применимы
+*/
     static double fundBalance(String ownerName, double fund) {
         int[] balances = {1200, 250, 2000, 500, 3200};
         String[] ownerNames = {"Jane", "Ann", "Jack", "Oww", "Lane"};
