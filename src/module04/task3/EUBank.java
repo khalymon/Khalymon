@@ -41,13 +41,16 @@ public class EUBank extends Bank {
             } else {
                 return 7;
             }
-        } else {
+        }
+
+        if (getCurrency() == Currency.EUR) {
             if (summ <= 1000) {
                 return 2;
             } else {
                 return 4;
             }
         }
+        return 0;
 
     }
 }

@@ -7,9 +7,36 @@ import module04.task3.EUBank;
 import module04.task3.ChinaBank;
 import module04.task5.BankSystemImpl;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 
 public class Main {
     public static void main(String[] args) {
+
+/*
+        String a = "abc";
+        String b = "abc";
+        String c = new String("abc");
+
+        System.out.println(a.equals(b));
+*/
+
+/*
+        double a = 4.6771;
+        double b = 4.263;
+*/
+
+        BigDecimal bigDecimal = new BigDecimal("4.6771");
+        System.out.println(bigDecimal.add(new BigDecimal("4.263")).doubleValue());
+
+        int a = 0xa;
+        int b = 10;
+
+        System.out.println(a == b);
+
+        Currency currency = Currency.EUR;
+        System.out.println(currency);
 
         User[] users = new User[6];
         for (int i = 0; i < users.length; i++) {

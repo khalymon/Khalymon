@@ -35,19 +35,15 @@ public class ChinaBank extends Bank {
 
     public int getCommission(int summ) {
 
-        if (getCurrency() == Currency.USD) {
-            if (summ <= 1000) {
-                return 3;
-            } else {
-                return 5;
-            }
-        } else {
-            if (summ <= 1000) {
-                return 10;
-            } else {
-                return 11;
-            }
+        if (getCurrency() == Currency.USD && summ <= 1000) {
+            return 3;
+        } else if (getCurrency() == Currency.USD && summ > 1000) {
+            return 5;
+        } else if (getCurrency() == Currency.EUR && summ <= 1000) {
+            return 10;
+        } else if (getCurrency() == Currency.EUR && summ > 1000) {
+            return 11;
         }
-
+        return 0;
     }
 }

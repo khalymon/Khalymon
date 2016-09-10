@@ -4,7 +4,6 @@ import module04.task4.User;
 
 public class BankSystemImpl implements BankSystem {
 
-
     public void withdrawOfUser(User user, int amount) {
         user.setBalance(user.getBalance() - amount);
     }
@@ -26,4 +25,5 @@ public class BankSystemImpl implements BankSystem {
     public void paySalary(User user) {
         user.setBalance(user.getBalance() + user.getSalary());
     }
+
 }
