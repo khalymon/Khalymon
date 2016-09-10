@@ -9,18 +9,45 @@ public class EUBank extends Bank{
         super(id, bankCountry, currency, numberOfEmployees, avrSalaryOfEmployee, rating, totalCapital);
     }
 
-    public int getLimitOfWithdrawal(){
-        return -1;
+    public int getLimitOfWithdrawal() {
+        if (getCurrency() == Currency.USD) {
+            return 2000;
+        } else {
+            return 2200;
+        }
     }
-    public  int getLimitOfFunding(){
-        return -1;
-    };
 
-    public  int getMonthlyRate(){
-        return -1;
-    };
+    public int getLimitOfFunding() {
+        if (getCurrency() == Currency.EUR) {
+            return 20000;
+        } else {
+            return 10000;
+        }
+    }
 
-    public  int getCommission(int summ){
-        return -1;
-    };
+    public int getMonthlyRate() {
+        if (getCurrency() == Currency.USD) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+
+    public int getCommission(int summ) {
+
+        if (getCurrency() == Currency.USD) {
+            if (summ <= 1000) {
+                return 5;
+            } else {
+                return 7;
+            }
+        } else {
+            if (summ <= 1000) {
+                return 2;
+            } else {
+                return 4;
+            }
+        }
+
+    }
 }
