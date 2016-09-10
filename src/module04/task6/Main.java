@@ -2,7 +2,6 @@ package module04.task6;
 
 import module04.task2.Currency;
 import module04.task4.User;
-import module04.task1.Bank;
 import module04.task3.USBank;
 import module04.task3.EUBank;
 import module04.task3.ChinaBank;
@@ -13,7 +12,9 @@ public class Main {
     public static void main(String[] args) {
 
         User[] users = new User[6];
-
+        for (int i = 0; i < users.length; i++) {
+            users[i] = new User();
+        }
 
         {
             USBank usBank = new USBank(100001, "USA", Currency.USD, 20000, 1000, 1, (10_000_000_000_000L));
@@ -49,6 +50,10 @@ public class Main {
                 bankSystemImpl.transferMoney(users[i], users[(i + 1) % 6], 5);
             }
 
+            for (User i : users) {
+                System.out.println(i.toString());
+
+            }
         }
 
 
