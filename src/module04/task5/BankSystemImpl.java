@@ -14,8 +14,13 @@ public class BankSystemImpl implements BankSystem {
     }
 
     public void transferMoney(User fromUser, User toUser, int amount) {
-        withdrawOfUser(fromUser, amount);
-        fundUser(toUser, amount);
+        if (fromUser.equals(toUser)) {
+            return;
+        } else {
+            withdrawOfUser(fromUser, amount);
+            fundUser(toUser, amount);
+        }
+
     }
 
     public void paySalary(User user) {
