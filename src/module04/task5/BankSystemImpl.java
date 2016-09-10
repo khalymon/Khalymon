@@ -27,6 +27,3 @@ public class BankSystemImpl implements BankSystem {
         user.setBalance(user.getBalance() + user.getSalary());
     }
 }
-
-
-
