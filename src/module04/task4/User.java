@@ -11,7 +11,15 @@ public class User {
     private int salary;
     private Bank bank;
 
-/*
+    public User() {
+    }
+
+    public User(double balance, int salary, Bank bank) {
+        this.balance = balance;
+        this.salary = salary;
+        this.bank = bank;
+    }
+
     public User(long id, String name, double balance, int monthsOfEmployment, String companyName, int salary, Bank bank) {
         this.id = id;
         this.name = name;
@@ -21,7 +29,6 @@ public class User {
         this.salary = salary;
         this.bank = bank;
     }
-*/
 
     public long getId() {
         return id;
@@ -81,15 +88,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", balance=" + balance +
-                ", monthsOfEmployment=" + monthsOfEmployment +
-                ", companyName='" + companyName + '\'' +
-                ", salary=" + salary +
-                ", bank=" + bank +
-                '}';
+        return "User{balance = " + (int)balance + ", salary = " + salary + ", bank = " + bank + "}";
     }
-
 }

@@ -4,7 +4,7 @@ import module04.task4.User;
 
 public interface BankSystem {
 
-    void withdrawOfUser(User user, int amount);
+    boolean withdrawOfUser(User user, int amount);
 
     void fundUser(User user, int amount);
 

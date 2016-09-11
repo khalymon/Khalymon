@@ -12,45 +12,46 @@ public class EUBank extends Bank {
     public int getLimitOfWithdrawal() {
         if (getCurrency() == Currency.USD) {
             return 2000;
-        } else {
+        } else if (getCurrency() == Currency.EUR) {
             return 2200;
         }
+        return -1; //unidentified currency
     }
 
     public int getLimitOfFunding() {
         if (getCurrency() == Currency.EUR) {
             return 20000;
-        } else {
+        } else if (getCurrency() == Currency.USD) {
             return 10000;
         }
+        return -1; //unidentified currency
     }
 
     public int getMonthlyRate() {
         if (getCurrency() == Currency.USD) {
             return 0;
-        } else {
+        } else if (getCurrency() == Currency.EUR) {
             return 1;
         }
+        return -1; //unidentified currency
     }
 
     public int getCommission(int summ) {
-
-        if (getCurrency() == Currency.USD) {
-            if (summ <= 1000) {
-                return 5;
-            } else {
-                return 7;
-            }
+        if (getCurrency() == Currency.USD && summ <= 1000) {
+            return 5;
+        } else if (getCurrency() == Currency.USD && summ > 1000) {
+            return 7;
+        } else if (getCurrency() == Currency.EUR && summ <= 1000) {
+            return 2;
+        } else if (getCurrency() == Currency.EUR && summ > 1000) {
+            return 4;
         }
 
-        if (getCurrency() == Currency.EUR) {
-            if (summ <= 1000) {
-                return 2;
-            } else {
-                return 4;
-            }
-        }
-        return 0;
+        return -1; //unidentified currency
+    }
 
+    @Override
+    public String toString() {
+        return "euBank";
     }
 }

@@ -88,4 +88,6 @@ public abstract class Bank {
     public double moneyPaidMonthlyForSalary() {
         return avrSalaryOfEmployee * numberOfEmployees;
     }
+
+
 }

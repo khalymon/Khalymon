@@ -12,25 +12,28 @@ public class ChinaBank extends Bank {
     public int getLimitOfWithdrawal() {
         if (getCurrency() == Currency.USD) {
             return 100;
-        } else {
+        } else if (getCurrency() == Currency.EUR) {
             return 150;
         }
+        return -1; //unidentified currency
     }
 
     public int getLimitOfFunding() {
         if (getCurrency() == Currency.EUR) {
             return 5000;
-        } else {
+        } else if (getCurrency() == Currency.USD) {
             return 10000;
         }
+        return -1; //unidentified currency
     }
 
     public int getMonthlyRate() {
         if (getCurrency() == Currency.USD) {
             return 1;
-        } else {
+        } else if (getCurrency() == Currency.EUR) {
             return 0;
         }
+        return -1; //unidentified currency
     }
 
     public int getCommission(int summ) {
@@ -44,6 +47,11 @@ public class ChinaBank extends Bank {
         } else if (getCurrency() == Currency.EUR && summ > 1000) {
             return 11;
         }
-        return 0;
+        return -1; //unidentified currency
+    }
+
+    @Override
+    public String toString() {
+        return "chinaBank";
     }
 }
