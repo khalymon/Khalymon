@@ -93,19 +93,6 @@ public class Task1 {
         return array[0] % array[array.length - 1];
     }
 
-    /*
-    Очень хорошее решение за один проход массива,
-    большинство решило эту задачу с использованием
-    уже реализованной ранее функции max(int[] array)
-    Повторюсь, твое решение лучше потому что заботает за один проход!
-
-    есть замечание только к именованию переменных, в данном случае
-    внутренней переменной массива "i", я бы назвал её или value или item
-    toReturn назвалбы или result или secondLargest
-
-    во втором уловии не нужно явно расставлять скобки у операции < больше приоритет
-    чем у &&, это как с *, / и +, -
-     */
     static int secondLargest(int[] array) {
         int firstLargest = Integer.MIN_VALUE;
         int toReturn = Integer.MIN_VALUE;
@@ -119,16 +106,7 @@ public class Task1 {
                 toReturn = i;
             }
         }
-/*
-        int firstLargest = max(array);
-        int toReturn = Integer.MIN_VALUE;
 
-        for (int i : array) {
-            if (toReturn < i && i < firstLargest) {
-                toReturn = i;
-            }
-        }
-*/
         return toReturn;
     }
 

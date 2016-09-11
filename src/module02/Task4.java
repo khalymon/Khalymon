@@ -14,7 +14,7 @@ public class Task4 {
         return balances[ownerIndex];
     }
 
-    private static int getOwnerIndex(String ownerName) {
+    public static int getOwnerIndex(String ownerName) {
         for (int i = 0; i < ownerNames.length; i++) {
             if (ownerNames[i].equals(ownerName)) {
                 return i;
