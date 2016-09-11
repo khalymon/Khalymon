@@ -18,12 +18,12 @@ public class BankSystemImpl implements BankSystem {
         * */
 
         if (user.getBank().getLimitOfWithdrawal() < 0 || user.getBank().getCommission(amount) < 0) {
-            System.out.println("Transaction failed. Can't identify currency.");
+//            System.out.println("Transaction failed. Can't identify currency.");
             return false;
         } else {
             double balanceProjected = user.getBalance() - amount * (1 + 0.01 * user.getBank().getCommission(amount));
             if (balanceProjected < 0) {
-                System.out.println("Transaction failed. Insufficient funds.");
+//                System.out.println("Transaction failed. Insufficient funds.");
                 return false;
             } else {
                 user.setBalance(balanceProjected);
@@ -34,7 +34,7 @@ public class BankSystemImpl implements BankSystem {
 
     public void fundUser(User user, int amount) {
         if (user.getBank().getLimitOfFunding() < 0 || user.getBank().getCommission(amount) < 0) {
-            System.out.println("Transaction failed. Can't identify currency.");
+//            System.out.println("Transaction failed. Can't identify currency.");
         } else {
             double balanceProjected = user.getBalance() + amount * (1 - 0.01 * user.getBank().getCommission(amount));
             /*
