@@ -31,7 +31,6 @@ public class TripAdviserAPI implements API {
             }
         }
 
-        //   return (Room[]) roomsList.toArray();
         return MyToArray(roomsList);
     }
 

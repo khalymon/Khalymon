@@ -30,7 +30,6 @@ public class GoogleAPI implements API {
             }
         }
 
-        //    return (Room[]) roomsList.toArray();
         return MyToArray(roomsList);
     }
 

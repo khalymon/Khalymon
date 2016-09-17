@@ -80,23 +80,13 @@ public class Room {
 
     @Override
     public boolean equals(Object o) {
-    //    System.out.println("no one has gone before");
-        if (this == o) {
-            System.out.println("first_cond");
-            return true;
-        };
-        if (o == null || getClass() != o.getClass()) {
-            System.out.println("second_cond");
-            return false;};
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
         Room room = (Room) o;
 
-        if (price != room.price) {
-            System.out.println("third_cond"); ; return false;};
-        if (persons != room.persons) {
-            System.out.println("fourth_cond");
-            return false;}
-        System.out.println("last_cond");
+        if (price != room.price) return false;
+        if (persons != room.persons) return false;
         return cityName != null ? cityName.equals(room.cityName) : room.cityName == null;
 
     }

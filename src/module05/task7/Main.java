@@ -33,7 +33,7 @@ public class Main {
             for (int i = 0; i < roomList.size(); i++) {
                 toReturn[i] = roomList.get(i);
             }
-            return null;
+            return toReturn;
         }
     }
 
@@ -66,7 +66,6 @@ public class Main {
 
     public static void main(String[] args) {
         Controller controller = new Controller();
-        //   Controller.apis
         int[] pricesT = {2500, 2500, 2500};
         int[] persons_T = {2, 2, 2};
         String[] hotelNamesT = {"InterContinental", "InterContinental", "InterContinental"};
@@ -77,11 +76,15 @@ public class Main {
             controller.getApis()[1] = new GoogleAPI();
             controller.getApis()[2] = new TripAdviserAPI();
             for (int i = 0; i < 3; i++) {
+                System.out.println("Кімнати, знайдені " + i + "-м API:");
                 printRooms(controller.getApis()[i].findRooms(pricesT[j], persons_T[j], hotelNamesT[j], cityNamesT[j]));
             }
+            System.out.println("Перетин TripAdviserAPI та GoogleAPI:");
             printRooms(controller.check(controller.getApis()[2], controller.getApis()[1], pricesT[j], persons_T[j], hotelNamesT[j], cityNamesT[j]));
+            System.out.println("Перетин всіх трьох API:");
             printRooms(controller.requestedRooms(pricesT[j], persons_T[j], hotelNamesT[j], cityNamesT[j]));
-            System.out.println("============");
+            System.out.println("=============================================================================");
+            System.out.println("=============================================================================");
         }
 
     }

@@ -37,7 +37,6 @@ public class Controller {
         Collections.addAll(toReturn, checkTmp);
         toReturn.retainAll(foundInApi3);
 
-        //   return (Room[]) toReturn.toArray();
         return MyToArray(toReturn);
     }
 
@@ -55,7 +54,6 @@ public class Controller {
         Collections.addAll(foundInApi2, roomsTmp2);
         foundInApi1.retainAll(foundInApi2);
 
-        //    return (Room[]) foundInApi1.toArray();
         return MyToArray(foundInApi1);
     }
 
