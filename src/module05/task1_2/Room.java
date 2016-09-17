@@ -77,15 +77,26 @@ public class Room {
         this.cityName = cityName;
     }
 
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        System.out.println("no one has gone before");
+        if (this == o) {
+            System.out.println("first_cond");
+            return true;
+        };
+        if (o == null || getClass() != o.getClass()) {
+            System.out.println("second_cond");
+            return false;};
 
         Room room = (Room) o;
 
-        if (price != room.price) return false;
-        if (persons != room.persons) return false;
+        if (price != room.price) {
+            System.out.println("third_cond"); ; return false;};
+        if (persons != room.persons) {
+            System.out.println("fourth_cond");
+            return false;}
+        System.out.println("last_cond");
         return cityName != null ? cityName.equals(room.cityName) : room.cityName == null;
 
     }

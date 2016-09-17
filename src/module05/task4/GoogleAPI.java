@@ -21,7 +21,7 @@ public class GoogleAPI implements API {
     *  findRooms() класу GoogleAPI знаходить всі кімнати цільового готелю String hotel
     * */
 
-    public Room[] findRooms(int price, int persons, String city, String hotel) {
+    public Room[] findRooms(int price, int persons, String hotel, String city) {
         List<Room> roomsList = new ArrayList<Room>();
 
         for (Room r : rooms) {
@@ -30,7 +30,7 @@ public class GoogleAPI implements API {
             }
         }
 
-    //    return (Room[]) roomsList.toArray();
+        //    return (Room[]) roomsList.toArray();
         return MyToArray(roomsList);
     }
 

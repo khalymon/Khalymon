@@ -21,16 +21,18 @@ public class BookingComAPI implements API {
     *  вмістимістю int persons та цільовим містом String city) кімнати
     * */
 
-    public Room[] findRooms(int price, int persons, String city, String hotel) {
+    public Room[] findRooms(int price, int persons, String hotel, String city) {
         List<Room> roomsList = new ArrayList<Room>();
 
         for (Room r : rooms) {
+         //   System.out.println("here");
             if (r.equals(new Room(price, persons, hotel, city))) {
+             //   System.out.println("if there...");
                 roomsList.add(r);
             }
         }
 
-     //   return (Room[]) roomsList.toArray();
+        //   return (Room[]) roomsList.toArray();
         return MyToArray(roomsList);
     }
 
