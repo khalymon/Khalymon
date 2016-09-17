@@ -32,4 +32,12 @@ public class TripAdviserAPI implements API {
 
         return (Room[]) roomsList.toArray();
     }
+
+    public Room[] getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(Room[] rooms) {
+        this.rooms = rooms;
+    }
 }

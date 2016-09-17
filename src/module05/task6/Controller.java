@@ -38,4 +38,11 @@ public class Controller {
         return (Room[]) foundInApi1.toArray();
     }
 
+    public API[] getApis() {
+        return apis;
+    }
+
+    public void setApis(API[] apis) {
+        this.apis = apis;
+    }
 }
