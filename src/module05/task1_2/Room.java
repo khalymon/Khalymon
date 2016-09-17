@@ -80,7 +80,7 @@ public class Room {
 
     @Override
     public boolean equals(Object o) {
-        System.out.println("no one has gone before");
+    //    System.out.println("no one has gone before");
         if (this == o) {
             System.out.println("first_cond");
             return true;

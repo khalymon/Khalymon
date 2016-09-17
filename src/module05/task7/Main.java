@@ -18,7 +18,7 @@ public class Main {
     public static void printRooms(Room[] rooms) {
         if (rooms != null) {
             for (int i = 0; i < rooms.length; i++) {
-                System.out.println("ffff" + rooms[i].toString());
+                System.out.println(rooms[i].toString());
             }
         } else {
             System.out.println("There's no such rooms.");
