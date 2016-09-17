@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static module05.task7.Main.MyToArray;
 import static module05.task7.Main.apisGlobal;
 
 public class Controller {
@@ -21,21 +22,41 @@ public class Controller {
         API api1 = new BookingComAPI();
         API api2 = new GoogleAPI();
         API api3 = new TripAdviserAPI();
-        Collections.addAll(foundInApi3, api3.findRooms(price, persons, city, hotel));
-        Collections.addAll(toReturn, check(api1, api2, price, persons, city, hotel));
+        Room[] roomsTmp1 = api1.findRooms(price, persons, city, hotel);
+        Room[] roomsTmp2 = api2.findRooms(price, persons, city, hotel);
+        Room[] roomsTmp3 = api3.findRooms(price, persons, city, hotel);
+        Room[] checkTmp;
+        if(roomsTmp1==null || roomsTmp2==null || roomsTmp3==null){
+            return null;
+        }
+        Collections.addAll(foundInApi3, roomsTmp3);
+        checkTmp = check(api1, api2, price, persons, city, hotel);
+        if(checkTmp==null){
+            return null;
+        }
+        Collections.addAll(toReturn, checkTmp);
         toReturn.retainAll(foundInApi3);
 
-        return (Room[]) toReturn.toArray();
+        //   return (Room[]) toReturn.toArray();
+        return MyToArray(toReturn);
     }
 
     public Room[] check(API api1, API api2, int price, int persons, String city, String hotel) {
         List<Room> foundInApi1 = new ArrayList<Room>();
         List<Room> foundInApi2 = new ArrayList<Room>();
-        Collections.addAll(foundInApi1, api1.findRooms(price, persons, city, hotel));
-        Collections.addAll(foundInApi2, api2.findRooms(price, persons, city, hotel));
+        Room[] roomsTmp1 = api1.findRooms(price, persons, city, hotel);
+        Room[] roomsTmp2 = api2.findRooms(price, persons, city, hotel);
+
+        if(roomsTmp1==null || roomsTmp2==null){
+            return null;
+        }
+
+        Collections.addAll(foundInApi1, roomsTmp1);
+        Collections.addAll(foundInApi2, roomsTmp2);
         foundInApi1.retainAll(foundInApi2);
 
-        return (Room[]) foundInApi1.toArray();
+        //    return (Room[]) foundInApi1.toArray();
+        return MyToArray(foundInApi1);
     }
 
     public API[] getApis() {

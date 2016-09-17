@@ -9,6 +9,7 @@ import module05.task6.Controller;
 
 import java.time.Month;
 import java.util.Calendar;
+import java.util.List;
 
 public class Main {
     public static Room[] roomsGlobal = new Room[5];
@@ -21,6 +22,19 @@ public class Main {
             }
         } else {
             System.out.println("There's no such rooms.");
+        }
+    }
+
+    public static Room[] MyToArray(List<Room> roomList){
+        if (roomList == null){
+            return null;
+        }
+        else{
+            Room[] toReturn = new Room[roomList.size()];
+            for (int i=0; i<roomList.size(); i++){
+                toReturn[i] = roomList.get(i);
+            }
+            return null;
         }
     }
 
@@ -58,6 +72,9 @@ public class Main {
         String[] cityNamesT = {"Paris", "London", "Paris"};
 
         for (int j = 0; j < 3; j++) {
+            controller.getApis()[0] = new BookingComAPI();
+            controller.getApis()[1] = new GoogleAPI();
+            controller.getApis()[2] = new TripAdviserAPI();
             for (int i = 0; i < 3; i++) {
                 printRooms(controller.getApis()[i].findRooms(pricesT[j], persons_T[j], cityNamesT[j], hotelNamesT[j]));
             }

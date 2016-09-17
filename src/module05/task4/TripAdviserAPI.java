@@ -6,6 +6,7 @@ import module05.task3.API;
 import java.util.ArrayList;
 import java.util.List;
 
+import static module05.task7.Main.MyToArray;
 import static module05.task7.Main.roomsGlobal;
 
 public class TripAdviserAPI implements API {
@@ -30,7 +31,8 @@ public class TripAdviserAPI implements API {
             }
         }
 
-        return (Room[]) roomsList.toArray();
+     //   return (Room[]) roomsList.toArray();
+        return MyToArray(roomsList);
     }
 
     public Room[] getRooms() {
