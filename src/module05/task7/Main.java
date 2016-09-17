@@ -15,8 +15,12 @@ public class Main {
     public static API[] apisGlobal = new API[3];
 
     public static void printRooms(Room[] rooms) {
-        for (int i = 0; i < rooms.length; i++) {
-            System.out.println(rooms[i].toString());
+        if (rooms != null) {
+            for (int i = 0; i < rooms.length; i++) {
+                System.out.println(rooms[i].toString());
+            }
+        } else {
+            System.out.println("There's no such rooms.");
         }
     }
 
@@ -48,8 +52,6 @@ public class Main {
 
     public static void main(String[] args) {
         Controller controller = new Controller();
-        //   long idT = 1235L;
-//        int priceT = 2500;
         int[] pricesT = {2500, 1500, 1000};
         int[] persons_T = {1, 2, 2};
         String[] hotelNamesT = {"InterContinental", "Royal", "InterContinental"};
