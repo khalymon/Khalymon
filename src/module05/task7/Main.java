@@ -41,10 +41,10 @@ public class Main {
         Calendar calendar = Calendar.getInstance();
 
         calendar.set(2016, Month.SEPTEMBER.getValue(), 1);
-        roomsGlobal[0] = new Room(1234L, 2500, 2, calendar.getTime(), "InterContinental", "Paris");
+        roomsGlobal[0] = new Room(1234L, 1000, 1, calendar.getTime(), "Royal", "London");
 
         calendar.set(2016, Month.SEPTEMBER.getValue(), 3);
-        roomsGlobal[1] = new Room(1235L, 2500, 2, calendar.getTime(), "InterContinental", "Paris");
+        roomsGlobal[1] = new Room(1235L, 1500, 1, calendar.getTime(), "InterContinental", "Paris");
 
         calendar.set(2017, Month.JANUARY.getValue(), 1);
         roomsGlobal[2] = new Room(1236L, 2500, 2, calendar.getTime(), "InterContinental", "Paris");
@@ -66,21 +66,20 @@ public class Main {
 
     public static void main(String[] args) {
         Controller controller = new Controller();
-        int[] pricesT = {2500, 2500, 2500};
-        int[] persons_T = {2, 2, 2};
-        String[] hotelNamesT = {"InterContinental", "InterContinental", "InterContinental"};
-        String[] cityNamesT = {"Paris", "Paris", "Paris"};
+        int[] pricesT = {1500, 1000, 2500};
+        int[] persons_T = {2, 1, 2};
+        String[] hotelNamesT = {"InterContinental", "Royal", "InterContinental"};
+        String[] cityNamesT = {"Paris", "London", "Paris"};
 
         for (int j = 0; j < 3; j++) {
-            controller.getApis()[0] = new BookingComAPI();
-            controller.getApis()[1] = new GoogleAPI();
-            controller.getApis()[2] = new TripAdviserAPI();
             for (int i = 0; i < 3; i++) {
                 System.out.println("Кімнати, знайдені " + i + "-м API:");
                 printRooms(controller.getApis()[i].findRooms(pricesT[j], persons_T[j], hotelNamesT[j], cityNamesT[j]));
+                System.out.println("--------------------------------------------------------------------------");
             }
             System.out.println("Перетин TripAdviserAPI та GoogleAPI:");
             printRooms(controller.check(controller.getApis()[2], controller.getApis()[1], pricesT[j], persons_T[j], hotelNamesT[j], cityNamesT[j]));
+            System.out.println("--------------------------------------------------------------------------");
             System.out.println("Перетин всіх трьох API:");
             printRooms(controller.requestedRooms(pricesT[j], persons_T[j], hotelNamesT[j], cityNamesT[j]));
             System.out.println("=============================================================================");
