@@ -9,16 +9,16 @@ import java.util.List;
 import static module05.task7.Main.MyToArray;
 import static module05.task7.Main.roomsGlobal;
 
-public class TripAdviserAPI implements API {
+public class TripAdvisorAPI implements API {
 
     private Room[] rooms;
 
-    public TripAdviserAPI() {
+    public TripAdvisorAPI() {
         rooms = roomsGlobal;
     }
 
     /*
-    *  findRooms() класу TripAdviserAPI знаходить всі кімнати, оренда яких
+    *  findRooms() класу TripAdvisorAPI знаходить всі кімнати, оренда яких
     *  не дорожча за кошторис int price
     * */
 

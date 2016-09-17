@@ -4,7 +4,7 @@ import module05.task1_2.Room;
 import module05.task3.API;
 import module05.task4.BookingComAPI;
 import module05.task4.GoogleAPI;
-import module05.task4.TripAdviserAPI;
+import module05.task4.TripAdvisorAPI;
 import module05.task6.Controller;
 
 import java.time.Month;
@@ -60,7 +60,7 @@ public class Main {
     static {
         apisGlobal[0] = new BookingComAPI();
         apisGlobal[1] = new GoogleAPI();
-        apisGlobal[2] = new TripAdviserAPI();
+        apisGlobal[2] = new TripAdvisorAPI();
     }
 
 
@@ -77,7 +77,7 @@ public class Main {
                 printRooms(controller.getApis()[i].findRooms(pricesT[j], persons_T[j], hotelNamesT[j], cityNamesT[j]));
                 System.out.println("--------------------------------------------------------------------------");
             }
-            System.out.println("Перетин TripAdviserAPI та GoogleAPI:");
+            System.out.println("Перетин TripAdvisorAPI та GoogleAPI:");
             printRooms(controller.check(controller.getApis()[2], controller.getApis()[1], pricesT[j], persons_T[j], hotelNamesT[j], cityNamesT[j]));
             System.out.println("--------------------------------------------------------------------------");
             System.out.println("Перетин всіх трьох API:");

@@ -6,7 +6,7 @@ import java.util.Random;
 
 import static module05.task7.Main.roomsGlobal;
 
-public class DAOImplemented implements DAO {
+public class DAOImpl implements DAO {
     public Room save(Room room) {
         System.out.println("Room " + room.toString() + " has been saved.");
         return room;

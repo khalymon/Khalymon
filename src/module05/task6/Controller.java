@@ -4,7 +4,7 @@ import module05.task1_2.Room;
 import module05.task3.API;
 import module05.task4.BookingComAPI;
 import module05.task4.GoogleAPI;
-import module05.task4.TripAdviserAPI;
+import module05.task4.TripAdvisorAPI;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,7 +21,7 @@ public class Controller {
         List<Room> foundInApi3 = new ArrayList<Room>();
         API api1 = new BookingComAPI();
         API api2 = new GoogleAPI();
-        API api3 = new TripAdviserAPI();
+        API api3 = new TripAdvisorAPI();
         Room[] roomsTmp1 = api1.findRooms(price, persons, hotel, city);
         Room[] roomsTmp2 = api2.findRooms(price, persons, hotel, city);
         Room[] roomsTmp3 = api3.findRooms(price, persons, hotel, city);
