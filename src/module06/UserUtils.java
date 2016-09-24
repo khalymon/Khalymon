@@ -1,8 +1,57 @@
 package module06;
 
 public class UserUtils {
+
+    public User[] uniqueUsersForPos(User[] users, int pos) {
+        // correct position values: pos = 0..(users.length-2)
+        User[] immutableUsers = new User[pos];
+        for (int i = 0; i < pos; i++) {
+            immutableUsers[i] = users[i];
+        }
+
+        int mutableLengthCounter = 0;
+        for (int i = pos + 1; i < users.length; i++) {
+            if (users[pos].getId() == users[i].getId()) {
+                mutableLengthCounter++;
+            }
+        }
+
+        User[] mutableUsers = new User[users.length - pos - mutableLengthCounter];
+        mutableUsers[0] = users[pos];
+        for (int i = pos + 1; i < users.length; i++) {
+            if (users[pos].getId() != users[i].getId()) {
+                mutableUsers[1 + mutableUsers.length - mutableLengthCounter] = users[i];
+            } else {
+                mutableLengthCounter--;
+            }
+        }
+
+        User[] toReturn = new User[immutableUsers.length + mutableUsers.length];
+        for (int i = 0; i < immutableUsers.length; i++) {
+            toReturn[i] = immutableUsers[i];
+        }
+        for (int i = 0; i < mutableUsers.length; i++) {
+            toReturn[i + immutableUsers.length] = mutableUsers[i];
+        }
+
+        return toReturn;
+    }
+
     public User[] uniqueUsers(User[] users) {
-        return null;
+        User[] usersToReturn = deleteEmptyUsers(users);
+
+        if (usersToReturn.length == 1) {
+            return usersToReturn;
+        } else {
+            int posCounter = 0;
+            do {
+                usersToReturn = uniqueUsersForPos(usersToReturn, posCounter);
+                posCounter--;
+            }
+            while (posCounter <= usersToReturn.length - 2);
+            return usersToReturn;
+        }
+
     }
 
 
@@ -59,6 +108,7 @@ public class UserUtils {
         for (int i = 0; i < users.length; i++) {
             if (!users[i].isEmpty()) {
                 toReturn[toReturn.length - emptyUsersCounter] = users[i];
+            } else {
                 emptyUsersCounter--;
             }
         }
