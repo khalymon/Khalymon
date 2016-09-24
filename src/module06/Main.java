@@ -37,8 +37,6 @@ public class Main {
     public static UserUtils utils = new UserUtils();
 
     static {
-
-
         users[0] = new User(0        , "Andrew0", "Smith", 200, 1000);
         users[1] = new User(12345601L,      null, "Smith", 200, 1000);
         users[2] = new User(12345602L, "Andrew2",    null, 200, 1000);

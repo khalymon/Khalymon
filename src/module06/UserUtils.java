@@ -1,77 +1,27 @@
 package module06;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class UserUtils {
 
     private User[] uniqueUsersForPos(User[] users, int pos) {
-        // correct position values: pos = 0..(users.length-2)
-        User[] immutableUsers;// = new User[pos];
-        User[] mutableUsers;
+        List<User> list = new ArrayList<User>();
         User[] toReturn;
-
-        if (pos == 0) {
-
-            int mutableLengthCounter = 0;
-            for (int i = pos + 1; i < users.length; i++) {
-                if (users[pos].getId() == users[i].getId()) {
-                    mutableLengthCounter++;
-                }
+        Collections.addAll(list, users);
+        for (int i = pos + 1; i < list.size(); i++) {
+            if (list.get(pos).getId() == list.get(i).getId()) {
+                list.remove(i);
             }
-
-            mutableUsers = new User[users.length - pos - mutableLengthCounter];
-            mutableUsers[0] = users[pos];
-            int j = 0; // допоміжна змінна циклу
-            for (int i = pos + 1; i < users.length; i++) {
-                if (users[pos].getId() != users[i].getId()) {
-                    mutableUsers[j] = users[i];
-                    j++;
-                }
-            }
-
-            toReturn = new User[mutableUsers.length];
-            for (int i = 0; i < mutableUsers.length; i++) {
-                toReturn[i] = mutableUsers[i];
-            }
-
-            return toReturn;
-
-
-
-        } else {
-            immutableUsers = new User[pos];
-
-            for (int i = 0; i < pos; i++) {
-                immutableUsers[i] = users[i];
-            }
-
-            int mutableLengthCounter = 0;
-            for (int i = pos + 1; i < users.length; i++) {
-                if (users[pos].getId() == users[i].getId()) {
-                    mutableLengthCounter++;
-                }
-            }
-
-            mutableUsers = new User[users.length - pos - mutableLengthCounter];
-            mutableUsers[0] = users[pos];
-            int j = 0; // допоміжна змінна циклу
-            for (int i = pos + 1; i < users.length; i++) {
-                if (users[pos].getId() != users[i].getId()) {
-                    mutableUsers[j] = users[i];
-                    j++;
-                }
-            }
-
-            toReturn = new User[immutableUsers.length + mutableUsers.length];
-            for (int i = 0; i < immutableUsers.length; i++) {
-                toReturn[i] = immutableUsers[i];
-            }
-            for (int i = 0; i < mutableUsers.length; i++) {
-                toReturn[i + immutableUsers.length] = mutableUsers[i];
-            }
-
-            return toReturn;
         }
-
+        toReturn = new User[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            toReturn[i] = list.get(i);
+        }
+        return toReturn;
     }
+
 
     public User[] uniqueUsers(User[] users) {
         User[] usersToReturn = deleteEmptyUsers(users);
@@ -89,7 +39,6 @@ public class UserUtils {
         }
 
     }
-
 
     public User[] usersWithConditionalBalance(User[] users, int balance) {
         int usersWithConditionalBalanceCounter = 0;
