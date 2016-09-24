@@ -5,6 +5,9 @@ public class UserUtils {
     private User[] uniqueUsersForPos(User[] users, int pos) {
         // correct position values: pos = 0..(users.length-2)
         User[] immutableUsers = new User[pos];
+        User[] mutableUsers;
+        User[] toReturn;
+
         for (int i = 0; i < pos; i++) {
             immutableUsers[i] = users[i];
         }
@@ -16,7 +19,7 @@ public class UserUtils {
             }
         }
 
-        User[] mutableUsers = new User[users.length - pos - mutableLengthCounter];
+        mutableUsers = new User[users.length - pos - mutableLengthCounter];
         mutableUsers[0] = users[pos];
         for (int i = pos + 1; i < users.length; i++) {
             if (users[pos].getId() != users[i].getId()) {
@@ -26,7 +29,7 @@ public class UserUtils {
             }
         }
 
-        User[] toReturn = new User[immutableUsers.length + mutableUsers.length];
+        toReturn = new User[immutableUsers.length + mutableUsers.length];
         for (int i = 0; i < immutableUsers.length; i++) {
             toReturn[i] = immutableUsers[i];
         }
@@ -57,6 +60,7 @@ public class UserUtils {
 
     public User[] usersWithConditionalBalance(User[] users, int balance) {
         int usersWithConditionalBalanceCounter = 0;
+        User[] toReturn;
 
         for (int i = 0; i < users.length; i++) {
             if (users[i].getBalance() == balance) {
@@ -64,7 +68,7 @@ public class UserUtils {
             }
         }
 
-        User[] toReturn = new User[usersWithConditionalBalanceCounter];
+        toReturn = new User[usersWithConditionalBalanceCounter];
         for (int i = 0; i < users.length; i++) {
             if (users[i].getBalance() == balance) {
                 toReturn[toReturn.length - usersWithConditionalBalanceCounter] = users[i];
@@ -97,13 +101,15 @@ public class UserUtils {
 
     public User[] deleteEmptyUsers(User[] users) {
         int emptyUsersCounter = 0;
+        User[] toReturn;
+
         for (int i = 0; i < users.length; i++) {
             if (users[i].isEmpty()) {
                 emptyUsersCounter++;
             }
         }
 
-        User[] toReturn = new User[users.length - emptyUsersCounter];
+        toReturn = new User[users.length - emptyUsersCounter];
 
         for (int i = 0; i < users.length; i++) {
             if (!users[i].isEmpty()) {

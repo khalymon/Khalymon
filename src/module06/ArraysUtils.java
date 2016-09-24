@@ -144,13 +144,14 @@ public final class ArraysUtils {
 
     public int[] findEvenElements(int[] array) {
         int evenCounter = 0;
+        int[] toReturn;
 
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0) {
                 evenCounter++;
             }
         }
-        int[] toReturn = new int[evenCounter];
+        toReturn = new int[evenCounter];
 
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0) {
