@@ -16,14 +16,24 @@ public class User {
     }
 
     public boolean isEmpty() {
-        if (this.getId() == 0 || this.getFirstName() == null ||
-                this.getLastName() == null || this.getSalary() == 0 /*||
-                    this.getBalance() == 0*/) { // баланс може бути нульовим
+        if (this.getId() == 0 || this.getFirstName() == null || this.getLastName() == null
+            /* || this.getSalary() == 0 || this.getBalance() == 0*/) { // баланс та ЗП можуть бути 0
             return true;
 
         } else {
             return false;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", salary=" + salary +
+                ", balance=" + balance +
+                '}';
     }
 
     public long getId() {

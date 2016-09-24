@@ -2,7 +2,7 @@ package module06;
 
 public class UserUtils {
 
-    public User[] uniqueUsersForPos(User[] users, int pos) {
+    private User[] uniqueUsersForPos(User[] users, int pos) {
         // correct position values: pos = 0..(users.length-2)
         User[] immutableUsers = new User[pos];
         for (int i = 0; i < pos; i++) {
@@ -77,7 +77,7 @@ public class UserUtils {
 
 
     public final User[] paySalaryToUsers(User[] users) {
-        User[] toReturn = users;
+        User[] toReturn = deleteEmptyUsers(users);
 
         for (int i = 0; i < toReturn.length; i++) {
             toReturn[i].setBalance(toReturn[i].getBalance() + toReturn[i].getSalary());
