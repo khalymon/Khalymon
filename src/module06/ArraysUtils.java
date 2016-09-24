@@ -1,6 +1,6 @@
 package module06;
 
-public class ArraysUtils {
+public final class ArraysUtils {
     public static int sum(int[] array) {
         int toReturn = 0;
         for (int i : array) {
