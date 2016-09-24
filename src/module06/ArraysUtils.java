@@ -153,10 +153,11 @@ public final class ArraysUtils {
         }
         toReturn = new int[evenCounter];
 
+        int j = 0; // допоміжна змінна циклу
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0) {
-                toReturn[toReturn.length - evenCounter] = array[i];
-                evenCounter--;
+                toReturn[j] = array[i];
+                j++;
             }
         }
 

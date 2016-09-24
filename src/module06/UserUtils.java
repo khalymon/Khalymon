@@ -21,11 +21,11 @@ public class UserUtils {
 
         mutableUsers = new User[users.length - pos - mutableLengthCounter];
         mutableUsers[0] = users[pos];
+        int j = 0; // допоміжна змінна циклу
         for (int i = pos + 1; i < users.length; i++) {
             if (users[pos].getId() != users[i].getId()) {
-                mutableUsers[1 + mutableUsers.length - mutableLengthCounter] = users[i];
-            } else {
-                mutableLengthCounter--;
+                mutableUsers[j] = users[i];
+                j++;
             }
         }
 
@@ -47,11 +47,15 @@ public class UserUtils {
             return usersToReturn;
         } else {
             int posCounter = 0;
-            do {
+//            do {
+//                usersToReturn = uniqueUsersForPos(usersToReturn, posCounter);
+//                posCounter--;
+//            }
+//            while (posCounter <= usersToReturn.length - 2);
+            while (posCounter <= usersToReturn.length - 2) {
                 usersToReturn = uniqueUsersForPos(usersToReturn, posCounter);
-                posCounter--;
+                posCounter++;
             }
-            while (posCounter <= usersToReturn.length - 2);
             return usersToReturn;
         }
 
@@ -69,10 +73,11 @@ public class UserUtils {
         }
 
         toReturn = new User[usersWithConditionalBalanceCounter];
+        int j = 0; // допоміжна змінна циклу
         for (int i = 0; i < users.length; i++) {
             if (users[i].getBalance() == balance) {
-                toReturn[toReturn.length - usersWithConditionalBalanceCounter] = users[i];
-                usersWithConditionalBalanceCounter--;
+                toReturn[j] = users[i];
+                j++;
             }
         }
 
@@ -101,6 +106,7 @@ public class UserUtils {
 
     public User[] deleteEmptyUsers(User[] users) {
         int emptyUsersCounter = 0;
+
         User[] toReturn;
 
         for (int i = 0; i < users.length; i++) {
@@ -109,13 +115,14 @@ public class UserUtils {
             }
         }
 
+
         toReturn = new User[users.length - emptyUsersCounter];
 
+        int j = 0; // допоміжна змінна циклу
         for (int i = 0; i < users.length; i++) {
             if (!users[i].isEmpty()) {
-                toReturn[toReturn.length - emptyUsersCounter] = users[i];
-            } else {
-                emptyUsersCounter--;
+                toReturn[j] = users[i];
+                j++;
             }
         }
 

@@ -4,19 +4,22 @@ public class Main {
     public static final int SIZE = 8;
 
     public static void printUsers(User[] users){
+        System.out.println("");
         if(users == null){
             System.out.println("Array of users is empty.");
             return;
         }
         else{
             for(int i=0; i<users.length; i++){
-                System.out.println(users[i].toString());
+ //               System.out.println(users[i].toString());
+                System.out.println(users[i]);
             }
-            System.out.println("======================");
+            System.out.println("==================================================================");
         }
     }
 
     public static void printLongs(long[] longs){
+        System.out.println("");
         if(longs == null){
             System.out.println("Array of IDs is empty.");
             return;
@@ -26,7 +29,7 @@ public class Main {
                 System.out.print(longs[i]+" ");
             }
             System.out.println();
-            System.out.println("======================");
+            System.out.println("==================================================================");
         }
     }
 
