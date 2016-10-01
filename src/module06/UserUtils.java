@@ -1,109 +1,77 @@
 package module06;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.Arrays;
 
 public class UserUtils {
 
-    private User[] uniqueUsersForPos(User[] users, int pos) {
-        List<User> list = new ArrayList<User>();
-        User[] toReturn;
-        Collections.addAll(list, users);
-        for (int i = pos + 1; i < list.size(); i++) {
-            if (list.get(pos).getId() == list.get(i).getId()) {
-                list.remove(i);
+    public static User[] uniqueUsers(User[] users) {
+        users = deleteEmptyUsers(users);
+
+        User[] result = new User[0];
+
+        for (User user : users) {
+            boolean flag = !isContains(result, user);
+
+            if (flag) {
+                result = addUser(result, user);
             }
         }
-        toReturn = new User[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            toReturn[i] = list.get(i);
+
+        return result;
+    }
+
+    private static User[] addUser(User[] users, User user) {
+        User[] result = Arrays.copyOf(users, users.length + 1);
+        result[result.length - 1] = user;
+        return result;
+    }
+
+    private static boolean isContains(User[] users, User user) {
+        for (User key : users) {
+            if (user.equals(key)) {
+                return true;
+            }
         }
-        return toReturn;
+        return false;
     }
 
 
-    public User[] uniqueUsers(User[] users) {
-        User[] usersToReturn = deleteEmptyUsers(users);
-
-        if (usersToReturn.length == 1) {
-            return usersToReturn;
-        } else {
-            int posCounter = 0;
-
-            while (posCounter <= usersToReturn.length - 2) {
-                usersToReturn = uniqueUsersForPos(usersToReturn, posCounter);
-                posCounter++;
+    public static User[] usersWithConditionalBalance(User[] users, int balance) {
+        users = uniqueUsers(users);
+        User[] result = new User[0];
+        for (User user : users) {
+            if (user.getBalance() == balance) {
+                result = addUser(result, user);
             }
-            return usersToReturn;
         }
-
+        return result;
     }
 
-    public User[] usersWithConditionalBalance(User[] users, int balance) {
-        int usersWithConditionalBalanceCounter = 0;
-        User[] toReturn;
-
-        for (int i = 0; i < users.length; i++) {
-            if (users[i].getBalance() == balance) {
-                usersWithConditionalBalanceCounter++;
-            }
+    public static User[] paySalaryToUsers(User[] users) {
+        users = uniqueUsers(users);
+        for (User user : users) {
+            user.setBalance(user.getBalance() + user.getSalary());
         }
-
-        toReturn = new User[usersWithConditionalBalanceCounter];
-        int j = 0; // допоміжна змінна циклу
-        for (int i = 0; i < users.length; i++) {
-            if (users[i].getBalance() == balance) {
-                toReturn[j] = users[i];
-                j++;
-            }
-        }
-
-        return toReturn;
+        return users;
     }
 
-
-    public final User[] paySalaryToUsers(User[] users) {
-        User[] toReturn = deleteEmptyUsers(users);
-
-        for (int i = 0; i < toReturn.length; i++) {
-            toReturn[i].setBalance(toReturn[i].getBalance() + toReturn[i].getSalary());
+    public static long[] getUsersId(User[] users) {
+        // users = deleteEmptyUsers(users);
+        users = uniqueUsers(users);
+        long[] result = new long[users.length];
+        for (int i = 0; i < users.length; i++) {
+            result[i] = users[i].getId();
         }
-
-        return toReturn;
+        return result;
     }
 
-
-    public final long[] getUsersId(User[] users) {
-        long[] toReturn = new long[users.length];
-        for (int i = 0; i < users.length; i++) {
-            toReturn[i] = users[i].getId();
-        }
-        return toReturn;
-    }
-
-    public User[] deleteEmptyUsers(User[] users) {
-        int emptyUsersCounter = 0;
-
-        User[] toReturn;
-
-        for (int i = 0; i < users.length; i++) {
-            if (users[i].isEmpty()) {
-                emptyUsersCounter++;
+    public static User[] deleteEmptyUsers(User[] users) {
+        User[] result = new User[0];
+        for (User user : users) {
+            if (user != null) {
+                result = addUser(result, user);
             }
         }
-
-
-        toReturn = new User[users.length - emptyUsersCounter];
-
-        int j = 0; // допоміжна змінна циклу
-        for (int i = 0; i < users.length; i++) {
-            if (!users[i].isEmpty()) {
-                toReturn[j] = users[i];
-                j++;
-            }
-        }
-
-        return toReturn;
+        return result;
     }
 }

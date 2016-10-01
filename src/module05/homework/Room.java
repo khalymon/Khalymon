@@ -1,4 +1,4 @@
-package module05.task1_2;
+package module05.homework;
 
 import java.util.Date;
 
@@ -17,16 +17,6 @@ public class Room {
         this.dateAvailableFrom = dateAvailableFrom;
         this.hotelName = hotelName;
         this.cityName = cityName;
-    }
-
-    public Room(int price, int persons, String hotelName, String cityName) {
-        this.price = price;
-        this.persons = persons;
-        this.hotelName = hotelName;
-        this.cityName = cityName;
-    }
-
-    public Room() {
     }
 
     public long getId() {
@@ -101,7 +91,7 @@ public class Room {
 
     @Override
     public String toString() {
-        return "Room{" +
+        return "\nRoom{" +
                 "id=" + id +
                 ", price=" + price +
                 ", persons=" + persons +

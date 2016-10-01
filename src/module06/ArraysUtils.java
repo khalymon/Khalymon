@@ -1,5 +1,7 @@
 package module06;
 
+import java.util.Arrays;
+
 public final class ArraysUtils {
     public static int sum(int[] array) {
         int toReturn = 0;
@@ -9,24 +11,8 @@ public final class ArraysUtils {
         return toReturn;
     }
 
-    public static double sum(double[] array) {
-        double toReturn = 0;
-        for (double i : array) {
-            toReturn += i;
-        }
-        return toReturn;
-    }
-
     public static int min(int[] array) {
         int toReturn = array[0];
-        for (int i = 1; i < array.length; i++) {
-            if (array[i] < toReturn) toReturn = array[i];
-        }
-        return toReturn;
-    }
-
-    public static double min(double[] array) {
-        double toReturn = array[0];
         for (int i = 1; i < array.length; i++) {
             if (array[i] < toReturn) toReturn = array[i];
         }
@@ -41,26 +27,8 @@ public final class ArraysUtils {
         return toReturn;
     }
 
-    public static double max(double[] array) {
-        double toReturn = array[0];
-        for (int i = 1; i < array.length; i++) {
-            if (array[i] > toReturn) toReturn = array[i];
-        }
-        return toReturn;
-    }
-
     public static int maxPositive(int[] array) {
         int toReturn = array[0];
-        for (int i = 1; i < array.length; i++) {
-            if ((array[i] > 0) && (toReturn < array[i])) {
-                toReturn = array[i];
-            }
-        }
-        return toReturn;
-    }
-
-    public static double maxPositive(double[] array) {
-        double toReturn = array[0];
         for (int i = 1; i < array.length; i++) {
             if ((array[i] > 0) && (toReturn < array[i])) {
                 toReturn = array[i];
@@ -89,10 +57,6 @@ public final class ArraysUtils {
         return array[0] % array[array.length - 1];
     }
 
-    public static double modulus(double[] array) {
-        return array[0] % array[array.length - 1];
-    }
-
     public static int secondLargest(int[] array) {
         int firstLargest = Integer.MIN_VALUE;
         int toReturn = Integer.MIN_VALUE;
@@ -102,7 +66,7 @@ public final class ArraysUtils {
                 toReturn = firstLargest;
                 firstLargest = i;
             }
-            if ((toReturn < i) && (i < firstLargest)) {
+            if (toReturn < i && i < firstLargest) {
                 toReturn = i;
             }
         }
@@ -110,57 +74,30 @@ public final class ArraysUtils {
         return toReturn;
     }
 
-    public static double secondLargest(double[] array) {
-        double firstLargest = -Double.MAX_VALUE;
-        double toReturn = -Double.MAX_VALUE;
-
-        for (double i : array) {
-            if (i > firstLargest) {
-                toReturn = firstLargest;
-                firstLargest = i;
-            }
-            if ((toReturn < i) && (i < firstLargest)) {
-                toReturn = i;
-            }
-        }
-        return toReturn;
+    private void swap(int[] array, int index1, int index2) {
+        int tmpInt = array[index2];
+        array[index2] = array[index1];
+        array[index1] = tmpInt;
     }
 
     public int[] reverse(int[] array) {
-        int[] toReturn = new int[array.length];
-        for (int i = 0; i < array.length; i++) {
-            toReturn[i] = array[array.length - 1 - i];
+        for (int i = 0; i < array.length / 2; i++) {
+            swap(array, i, array.length - 1 - i);
         }
-        return toReturn;
-    }
-
-    public int[] findEvenPlacedElements(int[] array) {
-        int[] toReturn = new int[(array.length + 1) / 2];
-        for (int i = 0; i < array.length; i += 2) {
-            toReturn[i / 2] = array[i];
-        }
-        return toReturn;
+        return array;
     }
 
     public int[] findEvenElements(int[] array) {
-        int evenCounter = 0;
-        int[] toReturn;
+        int[] result = new int[0];
 
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] % 2 == 0) {
-                evenCounter++;
-            }
-        }
-        toReturn = new int[evenCounter];
-
-        int j = 0; // допоміжна змінна циклу
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] % 2 == 0) {
-                toReturn[j] = array[i];
-                j++;
+        for (int value : array) {
+            if (value % 2 == 0) {
+                result = Arrays.copyOf(result, result.length + 1);
+                result[result.length - 1] = value;
             }
         }
 
-        return toReturn;
+        return result;
     }
+
 }

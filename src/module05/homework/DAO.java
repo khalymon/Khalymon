@@ -1,6 +1,4 @@
-package module05.task5;
-
-import module05.task1_2.Room;
+package module05.homework;
 
 public interface DAO {
     Room save(Room room);

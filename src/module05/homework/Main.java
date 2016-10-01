@@ -1,11 +1,4 @@
-package module05.task7;
-
-import module05.task1_2.Room;
-import module05.task3.API;
-import module05.task4.BookingComAPI;
-import module05.task4.GoogleAPI;
-import module05.task4.TripAdvisorAPI;
-import module05.task6.Controller;
+package module05.homework;
 
 import java.time.Month;
 import java.util.Calendar;
@@ -17,11 +10,13 @@ public class Main {
 
     public static void printRooms(Room[] rooms) {
         if (rooms != null) {
-            for (int i = 0; i < rooms.length; i++) {
-                System.out.println(rooms[i].toString());
+            if (rooms.length != 0) {
+                for (int i = 0; i < rooms.length; i++) {
+                    System.out.println(rooms[i].toString());
+                }
+            } else {
+                System.out.println("There's no such rooms.");
             }
-        } else {
-            System.out.println("There's no such rooms.");
         }
     }
 

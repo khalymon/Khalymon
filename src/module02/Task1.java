@@ -156,12 +156,12 @@ public class Task1 {
         }
         System.out.println("");
 
-        testArray = arraysUtils.findEvenPlacedElements(arrayInt);
-        System.out.print("findEvenPlacedElements: ");
-        for (int i = 0; i < testArray.length; i++) {
-            System.out.print(testArray[i] + " ");
-        }
-        System.out.println("");
+//        testArray = arraysUtils.findEvenPlacedElements(arrayInt);
+//        System.out.print("findEvenPlacedElements: ");
+//        for (int i = 0; i < testArray.length; i++) {
+//            System.out.print(testArray[i] + " ");
+//        }
+//        System.out.println("");
 
         testArray = arraysUtils.findEvenElements(arrayInt);
         System.out.print("findEvenElements: ");

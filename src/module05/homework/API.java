@@ -1,7 +1,9 @@
-package module05.task3;
-
-import module05.task1_2.Room;
+package module05.homework;
 
 public interface API {
+
     Room[] findRooms(int price, int persons, String hotel, String city);
+
+    Room[] getAll();
+
 }
