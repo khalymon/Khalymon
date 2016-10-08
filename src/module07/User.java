@@ -17,12 +17,6 @@ public class User implements Comparable {
         this.balance = balance;
     }
 
-    public void doSomething(Object o){
-        if(o == null){
-            System.out.println("NULL");
-        }
-    }
-
     public long getId() {
         return id;
     }
