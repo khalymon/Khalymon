@@ -2,9 +2,6 @@ package module05.homework;
 
 import java.time.Month;
 import java.util.Calendar;
-import java.util.Random;
-
-import static module05.homework.Main.roomsGlobal;
 
 public class DAOImpl implements DAO {
     public Room save(Room room) {

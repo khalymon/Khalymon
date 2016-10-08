@@ -36,6 +36,7 @@ public class Controller {
                 if (roomsApi1[i].equals(roomsApi2[j])) {
                     result = Arrays.copyOf(result, result.length + 1);
                     result[result.length - 1] = roomsApi1[i];
+                    break;
                 }
             }
         }
