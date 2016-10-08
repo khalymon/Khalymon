@@ -146,7 +146,6 @@ public class Main {
         Collections.addAll(orderList, orders);
         //    Collections.addAll(userSet, users,  byOrderPriceDecreasing);
         Collections.addAll(orderSet, orders);
-        // orderSet.
 
         printSeparator("=");
         System.out.println("orderList, sorted by natural compareTo():");
