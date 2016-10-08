@@ -1,5 +1,7 @@
 package module07;
 
+import java.util.Collection;
+
 public class Order implements Comparable {
     private long id;
     private int price;
@@ -44,16 +46,24 @@ public class Order implements Comparable {
         return user;
     }
 
+    public String ordersCollectionToString(Collection<Order> collection) {
+        String result = "";
+        for (Order order : collection) {
+            result += order.toString();
+        }
+        return result;
+    }
+
     @Override
     public String toString() {
-        return "\n\nOrder{" +
+        return "Order{" +
                 "id=" + id +
                 ", price=" + price +
                 ", currency=" + currency +
                 ", itemName='" + itemName + '\'' +
                 ", shopIdentificator='" + shopIdentificator + '\'' +
                 ", \nuser=" + user +
-                '}';
+                '}'+"\n\n";
     }
 
     @Override
@@ -84,7 +94,7 @@ public class Order implements Comparable {
         return result;
     }
 
-    public static int compareTo() {
+    public int compareTo(Object o) {
         Order order = (Order) o;
         if (this.equals(order)) {
             return 0;

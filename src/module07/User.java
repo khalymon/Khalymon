@@ -1,5 +1,7 @@
 package module07;
 
+import java.util.Collection;
+
 public class User implements Comparable {
     private long id;
     private String firstName;
@@ -35,9 +37,17 @@ public class User implements Comparable {
         return balance;
     }
 
+    public String usersCollectionToString(Collection<User> collection) {
+        String result = "";
+        for (User user : collection) {
+            result += user.toString();
+        }
+        return result;
+    }
+
     @Override
     public String toString() {
-        return "\nUser{" +
+        return "User{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
