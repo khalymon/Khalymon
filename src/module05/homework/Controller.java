@@ -21,7 +21,7 @@ public class Controller {
             int apiRoomsLength = rooms.length;
             result = Arrays.copyOf(rooms, resultLength + apiRoomsLength);
             for (int k = resultLength; k < result.length; k++) {
-                result[k] = rooms[resultLength - k];
+                result[k] = rooms[k - resultLength];
             }
         }
         return result;

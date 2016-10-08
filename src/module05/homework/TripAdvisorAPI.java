@@ -13,9 +13,9 @@ public class TripAdvisorAPI implements API {
         Calendar calendar = Calendar.getInstance();
         calendar.set(2016, Month.SEPTEMBER.getValue(), 1);
         rooms = new Room[]{
-                new Room(1234L, 1000, 1, calendar.getTime(), "Royal", "London"),
-                new Room(1245L, 1000, 2, calendar.getTime(), "Intercontinental", "London"),
-                new Room(1286L, 1000, 1, calendar.getTime(), "Royal", "Paris")
+                new Room(1000L, 1500, 2, calendar.getTime(), "Royal", "Paris"),
+                new Room(1001L, 1000, 1, calendar.getTime(), "Royal", "London"),
+                new Room(1002L, 2500, 2, calendar.getTime(), "Intercontinental", "Paris"),
         };
     }
 

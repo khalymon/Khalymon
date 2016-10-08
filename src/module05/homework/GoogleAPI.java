@@ -13,9 +13,9 @@ public class GoogleAPI implements API {
 
         calendar.set(2016, Month.SEPTEMBER.getValue(), 1);
         rooms = new Room[]{
-                new Room(1234L, 1000, 2, calendar.getTime(), "Royal", "London"),
-                new Room(1245L, 1500, 2, calendar.getTime(), "Royal", "Paris"),
-                new Room(1236L, 1000, 1, calendar.getTime(), "Royal", "London")
+                new Room(1200L, 1500, 2, calendar.getTime(), "Royal", "Paris"),
+                new Room(1201L, 1000, 1, calendar.getTime(), "Royal", "London"),
+                new Room(1202L, 2500, 2, calendar.getTime(), "Intercontinental", "Paris"),
         };
     }
 

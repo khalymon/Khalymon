@@ -11,20 +11,13 @@ public class BookingComAPI implements API {
 
     public BookingComAPI() {
         Calendar calendar = Calendar.getInstance();
-        // init another APIs!!!
         calendar.set(2016, Month.SEPTEMBER.getValue(), 1);
         rooms = new Room[]{
-                new Room(1234L, 1000, 1, calendar.getTime(), "Royal", "London"),
-                new Room(1235L, 1000, 1, calendar.getTime(), "Royal", "London"),
-                new Room(1236L, 1000, 1, calendar.getTime(), "Royal", "London")
+                new Room(1100L, 1500, 2, calendar.getTime(), "Royal", "Paris"),
+                new Room(1101L, 1000, 1, calendar.getTime(), "Royal", "London"),
+                new Room(1102L, 2500, 2, calendar.getTime(), "Intercontinental", "Paris"),
         };
     }
-
-    /*
-    *  метод findRooms() класу BookingComAPI знаходить всі підходящі (за кошторисом int price,
-    *  вмістимістю int persons та цільовим містом String city) кімнати
-    * */
-
 
     public Room[] findRooms(int price, int persons, String hotel, String city) {
         List<Room> roomsList = new ArrayList<Room>();
