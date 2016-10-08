@@ -63,7 +63,7 @@ public class Order implements Comparable {
                 ", itemName='" + itemName + '\'' +
                 ", shopIdentificator='" + shopIdentificator + '\'' +
                 ", \nuser=" + user +
-                '}'+"\n\n";
+                '}' + "\n\n";
     }
 
     @Override
@@ -96,39 +96,38 @@ public class Order implements Comparable {
 
     public int compareTo(Object o) {
         Order order = (Order) o;
+        long longToCompare;
+        int intToCompare;
+
         if (this.equals(order)) {
             return 0;
         }
-        if(order == null){
+        if (order == null) {
             return 1;
         }
-        if(this == null){
+        if (this == null) {
             return -1;
         }
-        if (this.id > order.id) {
-            return 1;
+        longToCompare = id - order.id;
+        if (longToCompare != 0) {
+            return Long.signum(longToCompare);
         }
-        if (this.id < order.id) {
-            return -1;
+        intToCompare = price - order.price;
+        if (intToCompare != 0) {
+            return Integer.signum(intToCompare);
         }
-        if (this.price > order.price) {
-            return 1;
+        intToCompare = currency.compareTo(order.currency);
+        if (intToCompare != 0) {
+            return Integer.signum(intToCompare);
         }
-        if (this.price < order.price) {
-            return -1;
+        intToCompare = itemName.compareTo(order.itemName);
+        if (intToCompare != 0) {
+            return Integer.signum(intToCompare);
         }
-        if (this.currency.compareTo(order.currency) != 0) {
-            return this.currency.compareTo(order.currency);
+        intToCompare = shopIdentificator.compareTo(order.shopIdentificator);
+        if (intToCompare != 0) {
+            return Integer.signum(intToCompare);
         }
-        if (this.itemName.compareTo(order.itemName) != 0) {
-            return this.itemName.compareTo(order.itemName);
-        }
-        if (this.shopIdentificator.compareTo(order.shopIdentificator) != 0) {
-            return this.shopIdentificator.compareTo(order.shopIdentificator);
-        }
-        if (this.user.compareTo(order.user)!=0){
-            this.user.compareTo(order.user);
-        }
-        return 0;
+        return user.compareTo(order.user);
     }
 }
