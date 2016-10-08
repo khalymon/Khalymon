@@ -172,6 +172,12 @@ public class Main {
         System.out.println(new Order().ordersCollectionToString(orderList));
         printSeparator("=");
 
+        System.out.println("Separating through the currency...");
+        printSeparator("-");
+//        Spliterator<Order> splitCurrency = orderList.spliterator();
+//        splitCurrency.
+        printSeparator("=");
+
         System.out.println("orderUserLastNameCheck(orderSet, \"Petrov\") == " + orderUserLastNameCheck(orderSet, "Petrov"));
         printSeparator("=");
 
