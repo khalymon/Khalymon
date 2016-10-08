@@ -134,6 +134,10 @@ public class Main {
         System.out.println(new Order().ordersCollectionToString(orderList));
         printSeparator("=");
 
-
+        System.out.println("orderList, sorted byItemNameAndShopIdentificatorAndUserCity:");
+        printSeparator("-");
+        Collections.sort(orderList, byItemNameAndShopIdentificatorAndUserCity);
+        System.out.println(new Order().ordersCollectionToString(orderList));
+        printSeparator("=");
     }
 }
