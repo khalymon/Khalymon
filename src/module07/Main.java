@@ -51,17 +51,14 @@ public class Main {
             public int compare(Object o1, Object o2) {
                 Order order1 = (Order) o1;
                 Order order2 = (Order) o2;
-                if ((order1 == null) && (order2 == null)) {
+                if (order1.equals(order2)) {
                     return 0;
                 }
-                if ((order1 == null) && (order2 != null)) {
-                    return 1;
-                }
-                if ((order1 != null) && (order2 == null)) {
+                if (order2 == null) {
                     return -1;
                 }
                 int intToCompare = order1.getPrice() - order2.getPrice();
-                return Integer.signum(-intToCompare);
+                return -intToCompare;
             }
         };
 
@@ -70,13 +67,10 @@ public class Main {
             public int compare(Object o1, Object o2) {
                 Order order1 = (Order) o1;
                 Order order2 = (Order) o2;
-                if ((order1 == null) && (order2 == null)) {
+                if (order1.equals(order2)) {
                     return 0;
                 }
-                if ((order1 == null) && (order2 != null)) {
-                    return -1;
-                }
-                if ((order1 != null) && (order2 == null)) {
+                if (order2 == null) {
                     return 1;
                 }
                 int intToCompare = order1.getPrice() - order2.getPrice();
@@ -86,7 +80,7 @@ public class Main {
                 String city1 = order1.getUser().getCity();
                 String city2 = order2.getUser().getCity();
                 intToCompare = city1.compareTo(city2);
-                return Integer.signum(intToCompare);
+                return intToCompare;
             }
         };
 

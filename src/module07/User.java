@@ -17,6 +17,12 @@ public class User implements Comparable {
         this.balance = balance;
     }
 
+    public void doSomething(Object o){
+        if(o == null){
+            System.out.println("NULL");
+        }
+    }
+
     public long getId() {
         return id;
     }
@@ -90,29 +96,23 @@ public class User implements Comparable {
         if (this.equals(user)) {
             return 0;
         }
-        if(user == null){
-            return 1;
-        }
-        if(this == null){
-            return -1;
-        }
         longToCompare = id - user.id;
         if (longToCompare != 0) {
             return Long.signum(longToCompare);
         }
         intToCompare = firstName.compareTo(user.firstName);
         if (intToCompare != 0) {
-            return Integer.signum(intToCompare);
+            return intToCompare;
         }
         intToCompare = lastName.compareTo(user.lastName);
         if (intToCompare != 0) {
-            return Integer.signum(intToCompare);
+            return intToCompare;
         }
         intToCompare = city.compareTo(user.city);
         if (intToCompare != 0) {
-            return Integer.signum(intToCompare);
+            return intToCompare;
         }
         intToCompare = balance - user.balance;
-        return Integer.signum(intToCompare);
+        return intToCompare;
     }
 }

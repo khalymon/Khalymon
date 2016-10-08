@@ -102,31 +102,25 @@ public class Order implements Comparable {
         if (this.equals(order)) {
             return 0;
         }
-        if (order == null) {
-            return 1;
-        }
-        if (this == null) {
-            return -1;
-        }
         longToCompare = id - order.id;
         if (longToCompare != 0) {
             return Long.signum(longToCompare);
         }
         intToCompare = price - order.price;
         if (intToCompare != 0) {
-            return Integer.signum(intToCompare);
+            return intToCompare;
         }
         intToCompare = currency.compareTo(order.currency);
         if (intToCompare != 0) {
-            return Integer.signum(intToCompare);
+            return intToCompare;
         }
         intToCompare = itemName.compareTo(order.itemName);
         if (intToCompare != 0) {
-            return Integer.signum(intToCompare);
+            return intToCompare;
         }
         intToCompare = shopIdentificator.compareTo(order.shopIdentificator);
         if (intToCompare != 0) {
-            return Integer.signum(intToCompare);
+            return intToCompare;
         }
         return user.compareTo(order.user);
     }
