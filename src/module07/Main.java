@@ -1,7 +1,5 @@
 package module07;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
-
 import java.util.*;
 
 import static module07.Currency.UAH;
@@ -47,20 +45,30 @@ public class Main {
         List<Order> orderList = new LinkedList<Order>();
         Set<User> userSet = new TreeSet<User>();
         Set<Order> orderSet = new TreeSet<Order>();
-        // Order tmpOrder = new Order();
+
         Comparator byOrderPriceDecreasing = new Comparator() {
             @Override
             public int compare(Object o1, Object o2) {
                 Order order1 = (Order) o1;
                 Order order2 = (Order) o2;
-                int pricesDifference = order1.getPrice() - order2.getPrice();
-                if (pricesDifference > 0) {
-                    return -1;
+                int intToCompare = order1.getPrice() - order2.getPrice();
+                return Integer.signum(-intToCompare);
+            }
+        };
+
+        Comparator byOrderPriceIncreasingAndUserCity = new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                Order order1 = (Order) o1;
+                Order order2 = (Order) o2;
+                int intToCompare = order1.getPrice() - order2.getPrice();
+                if(intToCompare!=0){
+                    return intToCompare;
                 }
-                if (pricesDifference < 0) {
-                    return 1;
-                }
-                return 0;
+                String city1 = order1.getUser().getCity();
+                String city2 = order2.getUser().getCity();
+                intToCompare = city1.compareTo(city2);
+                return Integer.signum(intToCompare);
             }
         };
 

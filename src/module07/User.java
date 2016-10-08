@@ -84,31 +84,29 @@ public class User implements Comparable {
     @Override
     public int compareTo(Object o) {
         User user = (User) o;
+        long longToCompare;
+        int intToCompare;
+
         if (this.equals(user)) {
             return 0;
         }
-        if (this.id > user.id) {
-            return 1;
+        longToCompare = this.id - user.id;
+        if (longToCompare != 0) {
+            return Long.signum(longToCompare);
         }
-        if (this.id < user.id) {
-            return -1;
+        intToCompare = this.firstName.compareTo(user.firstName);
+        if (intToCompare != 0) {
+            return Integer.signum(intToCompare);
         }
-        if (this.firstName.compareTo(user.firstName) != 0) {
-            return this.firstName.compareTo(user.firstName);
+        intToCompare = this.lastName.compareTo(user.lastName);
+        if (intToCompare != 0) {
+            return Integer.signum(intToCompare);
         }
-        if (this.lastName.compareTo(user.lastName) != 0) {
-            return this.lastName.compareTo(user.lastName);
+        intToCompare = this.city.compareTo(user.city);
+        if (intToCompare != 0) {
+            return Integer.signum(intToCompare);
         }
-        if (this.city.compareTo(user.city) != 0) {
-            return this.city.compareTo(user.city);
-        }
-        if (this.balance > user.balance) {
-            return 1;
-        }
-        if (this.balance < user.balance) {
-            return -1;
-        }
-        return 0;
+        intToCompare = this.balance - user.balance;
+        return Integer.signum(intToCompare);
     }
-
 }
