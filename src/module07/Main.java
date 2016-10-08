@@ -1,6 +1,7 @@
 package module07;
 
 import java.util.*;
+import java.util.function.Predicate;
 
 import static module07.Currency.UAH;
 import static module07.Currency.USD;
@@ -53,12 +54,16 @@ public class Main {
         Iterator iterator = orderCollection.iterator();
         Order order;
         while (iterator.hasNext()) {
-            order = (Order)iterator.next();
-            if(order.getCurrency().equals(currency)){
+            order = (Order) iterator.next();
+            if (order.getCurrency().equals(currency)) {
                 iterator.remove();
             }
         }
     }
+
+//    private static void deleteOrdersWithPriceLess(Collection<Order> orderCollection, int price) {
+//        orderCollection.removeIf(ord -> ord.getPrice() < 1500);
+//    }
 
     public static void main(String[] args) {
         //    List<User> userList = new LinkedList<User>();
@@ -159,6 +164,12 @@ public class Main {
         System.out.println("orderList, sorted byItemNameAndShopIdentificatorAndUserCity:");
         printSeparator("-");
         Collections.sort(orderList, byItemNameAndShopIdentificatorAndUserCity);
+        System.out.println(new Order().ordersCollectionToString(orderList));
+        printSeparator("=");
+
+        System.out.println("Deleting orders with price < 1500...");
+        printSeparator("-");
+        orderList.removeIf(order -> order.getPrice() < 1500);
         System.out.println(new Order().ordersCollectionToString(orderList));
         printSeparator("=");
 
