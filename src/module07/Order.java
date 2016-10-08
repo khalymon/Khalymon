@@ -17,6 +17,9 @@ public class Order implements Comparable {
         this.user = user;
     }
 
+    public Order() {
+    }
+
     public long getId() {
         return id;
     }
@@ -81,8 +84,7 @@ public class Order implements Comparable {
         return result;
     }
 
-    @Override
-    public int compareTo(Object o) {
+    public static int compareTo() {
         Order order = (Order) o;
         if (this.equals(order)) {
             return 0;

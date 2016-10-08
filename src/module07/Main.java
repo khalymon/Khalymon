@@ -6,6 +6,13 @@ import static module07.Currency.UAH;
 import static module07.Currency.USD;
 
 public class Main {
+    private static void printSeparator(String s) {
+        for(int i =0; i<80; i++){
+            System.out.print(s);
+        }
+        System.out.println();
+    }
+
 
     public static void main(String[] args) {
         User[] users = {
@@ -45,10 +52,14 @@ public class Main {
         Collections.addAll(orderSet, orders);
 
         System.out.println(userList.toString());
+        printSeparator("_");
         System.out.println(orderList.toString());
+        printSeparator("=");
         System.out.println(userSet.toString());
+        printSeparator("_");
         System.out.println(orderSet.toString());
+        printSeparator("=");
 
-
+        Collections.sort(orderList, Order.compareTo());
     }
 }
