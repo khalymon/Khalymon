@@ -1,8 +1,6 @@
 package module07;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import static module07.Currency.UAH;
 import static module07.Currency.USD;
@@ -13,8 +11,8 @@ public class Main {
         User[] users = {
                 new User(1000L, "Andriy", "Symyrenko", "Lviv", 1900),
                 new User(1001L, "Andriy", "Symyrenko", "Kyiv", 1900),
-                new User(1002L, "Petro", "Symyrenko", "Lviv", 1800),
-                new User(1003L, "Petro", "Symyrenko", "Kyiv", 1800),
+                new User(1002L, "Petro", "Symyrenko", "Kharkiv", 1800),
+                new User(1003L, "Petro", "Symyrenko", "Paris", 1800),
                 new User(1004L, "Petro", "Symyrenko", "Lviv", 1800),
                 new User(1005L, "Petro", "Symyrenko", "Kyiv", 1800),
                 new User(1006L, "Andriy", "Petrov", "Lviv", 1200),
@@ -36,18 +34,20 @@ public class Main {
                 new Order(9008L, 40, UAH, "coconut", "Billa", users[9]),
         };
 
-        List<User> userList = new ArrayList<User>();
-        List<Order> orderList = new ArrayList<Order>();
+        List<User> userList = new LinkedList<User>();
+        List<Order> orderList = new LinkedList<Order>();
+        Set<User> userSet = new TreeSet<User>();
+        Set<Order> orderSet = new TreeSet<Order>();
 
         Collections.addAll(userList, users);
         Collections.addAll(orderList, orders);
+        Collections.addAll(userSet, users);
+        Collections.addAll(orderSet, orders);
 
         System.out.println(userList.toString());
         System.out.println(orderList.toString());
-
-
-
-
+        System.out.println(userSet.toString());
+        System.out.println(orderSet.toString());
 
 
     }
