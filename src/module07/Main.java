@@ -62,7 +62,7 @@ public class Main {
                 Order order1 = (Order) o1;
                 Order order2 = (Order) o2;
                 int intToCompare = order1.getPrice() - order2.getPrice();
-                if(intToCompare!=0){
+                if (intToCompare != 0) {
                     return intToCompare;
                 }
                 String city1 = order1.getUser().getCity();

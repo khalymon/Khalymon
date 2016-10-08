@@ -90,23 +90,29 @@ public class User implements Comparable {
         if (this.equals(user)) {
             return 0;
         }
-        longToCompare = this.id - user.id;
+        if(user == null){
+            return 1;
+        }
+        if(this == null){
+            return -1;
+        }
+        longToCompare = id - user.id;
         if (longToCompare != 0) {
             return Long.signum(longToCompare);
         }
-        intToCompare = this.firstName.compareTo(user.firstName);
+        intToCompare = firstName.compareTo(user.firstName);
         if (intToCompare != 0) {
             return Integer.signum(intToCompare);
         }
-        intToCompare = this.lastName.compareTo(user.lastName);
+        intToCompare = lastName.compareTo(user.lastName);
         if (intToCompare != 0) {
             return Integer.signum(intToCompare);
         }
-        intToCompare = this.city.compareTo(user.city);
+        intToCompare = city.compareTo(user.city);
         if (intToCompare != 0) {
             return Integer.signum(intToCompare);
         }
-        intToCompare = this.balance - user.balance;
+        intToCompare = balance - user.balance;
         return Integer.signum(intToCompare);
     }
 }

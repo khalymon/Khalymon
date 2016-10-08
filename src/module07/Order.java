@@ -99,6 +99,12 @@ public class Order implements Comparable {
         if (this.equals(order)) {
             return 0;
         }
+        if(order == null){
+            return 1;
+        }
+        if(this == null){
+            return -1;
+        }
         if (this.id > order.id) {
             return 1;
         }
