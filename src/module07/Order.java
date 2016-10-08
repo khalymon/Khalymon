@@ -40,4 +40,16 @@ public class Order {
     public User getUser() {
         return user;
     }
+
+    @Override
+    public String toString() {
+        return "\n\nOrder{" +
+                "id=" + id +
+                ", price=" + price +
+                ", currency=" + currency +
+                ", itemName='" + itemName + '\'' +
+                ", shopIdentificator='" + shopIdentificator + '\'' +
+                ", \nuser=" + user +
+                '}';
+    }
 }

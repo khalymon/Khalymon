@@ -1,10 +1,7 @@
 package module04.task5;
 
 import module04.task1.Bank;
-import module04.task2.Currency;
 import module04.task4.User;
-
-import static module04.task6.Main.EUR_TO_USD;
 
 public class BankSystemImpl implements BankSystem {
 
