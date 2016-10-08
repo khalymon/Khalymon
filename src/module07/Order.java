@@ -105,10 +105,12 @@ public class Order implements Comparable {
         if (this.itemName.compareTo(order.itemName) != 0) {
             return this.itemName.compareTo(order.itemName);
         }
-        if(){
-
+        if (this.shopIdentificator.compareTo(order.shopIdentificator) != 0) {
+            return this.shopIdentificator.compareTo(order.shopIdentificator);
         }
-
+        if (this.user.compareTo(order.user)!=0){
+            this.user.compareTo(order.user);
+        }
         return 0;
     }
 }
