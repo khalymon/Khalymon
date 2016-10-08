@@ -40,6 +40,15 @@ public class Main {
         System.out.println();
     }
 
+    private static boolean orderUserLastNameCheck(Collection<Order> orderList, String lastName) {
+        for (Order element : orderList) {
+            if(element.getUser().getLastName().equals(lastName)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         List<User> userList = new LinkedList<User>();
         List<Order> orderList = new LinkedList<Order>();
@@ -138,6 +147,9 @@ public class Main {
         printSeparator("-");
         Collections.sort(orderList, byItemNameAndShopIdentificatorAndUserCity);
         System.out.println(new Order().ordersCollectionToString(orderList));
+        printSeparator("=");
+
+        System.out.println("orderUserLastNameCheck(orderList, \"Petrov\") == " +  orderUserLastNameCheck(orderSet, "Petrov"));
         printSeparator("=");
     }
 }
