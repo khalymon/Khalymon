@@ -49,15 +49,18 @@ public class Main {
         Comparator byOrderPriceDecreasing = new Comparator() {
             @Override
             public int compare(Object o1, Object o2) {
-                Order order1 = (Order) o1;
-                Order order2 = (Order) o2;
-                if (order1.equals(order2)) {
+                if (o1.equals(o2)) {
                     return 0;
                 }
-                if (order2 == null) {
+                if (o2 == null) {
                     return -1;
                 }
-                int intToCompare = order1.getPrice() - order2.getPrice();
+
+                Order order1 = (Order) o1;
+                Order order2 = (Order) o2;
+                int intToCompare;
+
+                intToCompare = order1.getPrice() - order2.getPrice();
                 return -intToCompare;
             }
         };
@@ -65,15 +68,18 @@ public class Main {
         Comparator byOrderPriceIncreasingAndUserCity = new Comparator() {
             @Override
             public int compare(Object o1, Object o2) {
-                Order order1 = (Order) o1;
-                Order order2 = (Order) o2;
-                if (order1.equals(order2)) {
+                if (o1.equals(o2)) {
                     return 0;
                 }
-                if (order2 == null) {
+                if (o2 == null) {
                     return 1;
                 }
-                int intToCompare = order1.getPrice() - order2.getPrice();
+
+                Order order1 = (Order) o1;
+                Order order2 = (Order) o2;
+                int intToCompare;
+
+                intToCompare = order1.getPrice() - order2.getPrice();
                 if (intToCompare != 0) {
                     return intToCompare;
                 }
@@ -81,6 +87,32 @@ public class Main {
                 String city2 = order2.getUser().getCity();
                 intToCompare = city1.compareTo(city2);
                 return intToCompare;
+            }
+        };
+
+        Comparator byItemNameAndShopIdentificatorAndUserCity = new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                if (o1.equals(o2)) {
+                    return 0;
+                }
+                if (o2 == null) {
+                    return -1;
+                }
+
+                Order order1 = (Order) o1;
+                Order order2 = (Order) o2;
+                int intToCompare;
+
+                intToCompare = order1.getItemName().compareTo(order2.getItemName());
+                if (intToCompare != 0) {
+                    return intToCompare;
+                }
+                intToCompare = order1.getShopIdentificator().compareTo(order2.getShopIdentificator());
+                if (intToCompare != 0) {
+                    return intToCompare;
+                }
+                return order1.getUser().getCity().compareTo(order2.getUser().getCity());
             }
         };
 
