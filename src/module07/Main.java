@@ -40,8 +40,8 @@ public class Main {
         System.out.println();
     }
 
-    private static boolean orderUserLastNameCheck(Collection<Order> orderList, String lastName) {
-        for (Order element : orderList) {
+    private static boolean orderUserLastNameCheck(Collection<Order> orderCollection, String lastName) {
+        for (Order element : orderCollection) {
             if(element.getUser().getLastName().equals(lastName)){
                 return true;
             }
