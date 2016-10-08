@@ -48,7 +48,7 @@ public class Main {
         Set<User> userSet = new TreeSet<User>();
         Set<Order> orderSet = new TreeSet<Order>();
         // Order tmpOrder = new Order();
-        Comparator compareByOrderDecreasing = new Comparator() {
+        Comparator byOrderPriceDecreasing = new Comparator() {
             @Override
             public int compare(Object o1, Object o2) {
                 Order order1 = (Order) o1;
@@ -76,9 +76,9 @@ public class Main {
         System.out.println(new Order().ordersCollectionToString(orderList));
         printSeparator("=");
 
-        System.out.println("orderList, sorted by compareByOrderDecreasing:");
+        System.out.println("orderList, sorted byOrderPriceDecreasing:");
         printSeparator("-");
-        Collections.sort(orderList, compareByOrderDecreasing);
+        Collections.sort(orderList, byOrderPriceDecreasing);
         System.out.println(new Order().ordersCollectionToString(orderList));
         printSeparator("=");
 
