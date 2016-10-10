@@ -66,7 +66,7 @@ public class Main {
 
     public static void main(String[] args) {
         //    List<User> userList = new LinkedList<User>();
-        List<Order> orderList = new LinkedList<Order>();
+        List<Order> orderList;// = new LinkedList<Order>();
         //    Set<User> userSet = new TreeSet<User>();
         Set<Order> orderSet;// = new TreeSet<Order>();
 
@@ -141,50 +141,62 @@ public class Main {
         };
 
         orderSet = new TreeSet<Order>(byOrderPriceDecreasing);
+        orderList = new LinkedList<Order>();
         //   Collections.addAll(userList, users);
         Collections.addAll(orderList, orders);
         //    Collections.addAll(userSet, users,  byOrderPriceDecreasing);
         Collections.addAll(orderSet, orders);
 
         printSeparator("=");
-        System.out.println("orderList, sorted by natural compareTo():");
+        System.out.println("[orderList] sorted by natural compareTo():");
         printSeparator("-");
         Collections.sort(orderList);
         System.out.println(Order.ordersCollectionToString(orderList));
         printSeparator("=");
 
-        System.out.println("orderList, sorted byOrderPriceDecreasing:");
+        System.out.println("[orderList]. Sorted byOrderPriceDecreasing:");
         printSeparator("-");
         Collections.sort(orderList, byOrderPriceDecreasing);
         System.out.println(Order.ordersCollectionToString(orderList));
         printSeparator("=");
 
-        System.out.println("orderList, sorted byItemNameAndShopIdentificatorAndUserCity:");
+        System.out.println("[orderList]. Sorted byItemNameAndShopIdentificatorAndUserCity:");
         printSeparator("-");
         Collections.sort(orderList, byItemNameAndShopIdentificatorAndUserCity);
         System.out.println(Order.ordersCollectionToString(orderList));
         printSeparator("=");
 
-        System.out.println("Deleting orders with price < 1500...");
+        System.out.println("[orderList]. Deleting duplicates...");
+        printSeparator("-");
+        System.out.println("Here.");
+        System.out.println(Order.ordersCollectionToString(orderList));
+        printSeparator("=");
+
+        System.out.println("[orderList]. Deleting orders with price < 1500...");
         printSeparator("-");
         orderList.removeIf(order -> order.getPrice() < 1500);
         System.out.println(Order.ordersCollectionToString(orderList));
         printSeparator("=");
 
-        System.out.println("Separating through the currency...");
+        System.out.println("[orderList]. Separating through the currency...");
         printSeparator("-");
-//        Spliterator<Order> splitCurrency = orderList.spliterator();
-//        splitCurrency.
+        System.out.println("Here.");
         printSeparator("=");
 
-        System.out.println("orderUserLastNameCheck(orderSet, \"Petrov\") == " + orderUserLastNameCheck(orderSet, "Petrov"));
+        System.out.println("[orderList]. Separating through the cities...");
+        printSeparator("-");
+        System.out.println("Here.");
         printSeparator("=");
 
-        System.out.println("Order largest price: ");
+        System.out.println("[orderSet]. orderUserLastNameCheck(orderSet, \"Petrov\") == " +
+                orderUserLastNameCheck(orderSet, "Petrov"));
+        printSeparator("=");
+
+        System.out.println("[orderSet]. Order largest price: ");
         System.out.println(orderSet.iterator().next().getPrice());
         printSeparator("=");
 
-        System.out.println("Deleting orders with currency = USD...");
+        System.out.println("[orderSet]. Deleting orders with currency = USD...");
         printSeparator("-");
         deleteOrdersWithCurrency(orderSet, USD);
         System.out.println(Order.ordersCollectionToString(orderSet));
