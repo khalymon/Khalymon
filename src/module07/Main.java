@@ -1,7 +1,6 @@
 package module07;
 
 import java.util.*;
-import java.util.function.Predicate;
 
 import static module07.Currency.UAH;
 import static module07.Currency.USD;
@@ -51,10 +50,10 @@ public class Main {
     }
 
     private static void deleteOrdersWithCurrency(Collection<Order> orderCollection, Currency currency) {
-        Iterator iterator = orderCollection.iterator();
+        Iterator<Order> iterator = orderCollection.iterator();
         Order order;
         while (iterator.hasNext()) {
-            order = (Order) iterator.next();
+            order = iterator.next();
             if (order.getCurrency().equals(currency)) {
                 iterator.remove();
             }
@@ -151,25 +150,25 @@ public class Main {
         System.out.println("orderList, sorted by natural compareTo():");
         printSeparator("-");
         Collections.sort(orderList);
-        System.out.println(new Order().ordersCollectionToString(orderList));
+        System.out.println(Order.ordersCollectionToString(orderList));
         printSeparator("=");
 
         System.out.println("orderList, sorted byOrderPriceDecreasing:");
         printSeparator("-");
         Collections.sort(orderList, byOrderPriceDecreasing);
-        System.out.println(new Order().ordersCollectionToString(orderList));
+        System.out.println(Order.ordersCollectionToString(orderList));
         printSeparator("=");
 
         System.out.println("orderList, sorted byItemNameAndShopIdentificatorAndUserCity:");
         printSeparator("-");
         Collections.sort(orderList, byItemNameAndShopIdentificatorAndUserCity);
-        System.out.println(new Order().ordersCollectionToString(orderList));
+        System.out.println(Order.ordersCollectionToString(orderList));
         printSeparator("=");
 
         System.out.println("Deleting orders with price < 1500...");
         printSeparator("-");
         orderList.removeIf(order -> order.getPrice() < 1500);
-        System.out.println(new Order().ordersCollectionToString(orderList));
+        System.out.println(Order.ordersCollectionToString(orderList));
         printSeparator("=");
 
         System.out.println("Separating through the currency...");
@@ -188,7 +187,7 @@ public class Main {
         System.out.println("Deleting orders with currency = USD...");
         printSeparator("-");
         deleteOrdersWithCurrency(orderSet, USD);
-        System.out.println(new Order().ordersCollectionToString(orderSet));
+        System.out.println(Order.ordersCollectionToString(orderSet));
         printSeparator("=");
     }
 }

@@ -46,7 +46,7 @@ public class Order implements Comparable {
         return user;
     }
 
-    public String ordersCollectionToString(Collection<Order> collection) {
+    public static String ordersCollectionToString(Collection<Order> collection) {
         String result = "";
         for (Order order : collection) {
             result += order.toString();
