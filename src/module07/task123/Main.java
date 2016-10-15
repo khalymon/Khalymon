@@ -1,9 +1,6 @@
-package module07;
+package module07.task123;
 
 import java.util.*;
-
-import static module07.Currency.UAH;
-import static module07.Currency.USD;
 
 public class Main {
 
@@ -21,16 +18,16 @@ public class Main {
     };
 
     private static Order[] orders = {
-            new Order(9000L, 30_000_000, UAH, "bananas", "Ashan", users[0]),
-            new Order(9001L, 2_000_000, USD, "bananas", "Ashan", users[1]),
-            new Order(9002L, 30, UAH, "bananas", "Ashan", users[2]),
-            new Order(9003L, 1_000_000, USD, "bananas", "Ashan", users[3]),
-            new Order(9004L, 30_000_000, UAH, "coconut", "Ashan", users[4]),
-            new Order(9005L, 1_000_000, USD, "bananas", "Billa", users[5]),
-            new Order(9006L, 40_000_000, UAH, "coconut", "Billa", users[6]),
-            new Order(9007L, 1_000_000, USD, "coconut", "Billa", users[7]),
-            new Order(9008L, 40_000_000, UAH, "coconut", "Billa", users[8]),
-            new Order(9008L, 40_000_000, UAH, "coconut", "Billa", users[9]),
+            new Order(9000L, 30_000_000, Currency.UAH, "bananas", "Ashan", users[0]),
+            new Order(9001L, 2_000_000, Currency.USD, "bananas", "Ashan", users[1]),
+            new Order(9002L, 30, Currency.UAH, "bananas", "Ashan", users[2]),
+            new Order(9003L, 1_000_000, Currency.USD, "bananas", "Ashan", users[3]),
+            new Order(9004L, 30_000_000, Currency.UAH, "coconut", "Ashan", users[4]),
+            new Order(9005L, 1_000_000, Currency.USD, "bananas", "Billa", users[5]),
+            new Order(9006L, 40_000_000, Currency.UAH, "coconut", "Billa", users[6]),
+            new Order(9007L, 1_000_000, Currency.USD, "coconut", "Billa", users[7]),
+            new Order(9008L, 40_000_000, Currency.UAH, "coconut", "Billa", users[8]),
+            new Order(9008L, 40_000_000, Currency.UAH, "coconut", "Billa", users[9]),
     };
 
     private static void printSeparator(String s) {
@@ -199,10 +196,10 @@ public class Main {
         printSeparator("-");
         for (int i = 0; i < orderList.size(); i++) {
             orderTmp = orderList.get(i);
-            if (orderTmp.getCurrency().equals(USD)) {
+            if (orderTmp.getCurrency().equals(Currency.USD)) {
                 orderListUSD.add(orderTmp);
             }
-            if (orderTmp.getCurrency().equals(UAH)) {
+            if (orderTmp.getCurrency().equals(Currency.UAH)) {
                 orderListUAH.add(orderTmp);
             }
         }
@@ -248,7 +245,7 @@ public class Main {
 
         System.out.println("[orderSet]. Deleting orders with currency = USD...");
         printSeparator("-");
-        deleteOrdersWithCurrency(orderSet, USD);
+        deleteOrdersWithCurrency(orderSet, Currency.USD);
         System.out.println(Order.ordersCollectionToString(orderSet));
         printSeparator("=");
     }

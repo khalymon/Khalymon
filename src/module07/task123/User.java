@@ -1,4 +1,4 @@
-package module07;
+package module07.task123;
 
 import java.util.Collection;
 
