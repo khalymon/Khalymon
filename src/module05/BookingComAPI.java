@@ -4,6 +4,7 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BookingComAPI implements API {
 
@@ -21,11 +22,7 @@ public class BookingComAPI implements API {
     public List<Room> findRooms(int price, int persons, String hotel, String city) {
         List<Room> roomsList = new ArrayList<Room>();
         Room lookingRoom = new Room(0L, price, persons, Calendar.getInstance().getTime(), hotel, city);
-        for (Room room : rooms) {
-            if (room.equals(lookingRoom)) {
-                roomsList.add(room);
-            }
-        }
+        roomsList.addAll(rooms.stream().filter(room -> room.equals(lookingRoom)).collect(Collectors.toList()));
         return roomsList;
     }
 
