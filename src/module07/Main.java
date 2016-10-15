@@ -221,7 +221,7 @@ public class Main {
         citiesList.addAll(citiesSet);
         orderListByCities = new ArrayList<List<Order>>();
         for (int i = 0; i < citiesList.size(); i++) {
-            orderListByCities.add(null);
+            orderListByCities.add(new ArrayList<Order>());
         }
         for (int i = 0; i < orderList.size(); i++) {
             orderTmp = orderList.get(i);
