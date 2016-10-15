@@ -1,12 +1,26 @@
 package module05;
 
+import java.util.List;
+
 public class Main {
-    public static void printRooms(Room[] rooms) {
+    public static void printRooms(List<Room> rooms/*Room[] rooms*/) {
+//        if (rooms != null) {
+//            if (rooms.length != 0) {
+//                for (int i = 0; i < rooms.length; i++) {
+//                    if (rooms[i] != null) {
+//                        System.out.print(rooms[i].toString());
+//                    }
+//                }
+//            } else {
+//                System.out.print("There's no such rooms.");
+//            }
+//        }
+//        System.out.println();
         if (rooms != null) {
-            if (rooms.length != 0) {
-                for (int i = 0; i < rooms.length; i++) {
-                    if (rooms[i] != null) {
-                        System.out.print(rooms[i].toString());
+            if (rooms.size() != 0) {
+                for (Room aList : rooms) {
+                    if (aList != null) {
+                        System.out.println(aList.toString());
                     }
                 }
             } else {
