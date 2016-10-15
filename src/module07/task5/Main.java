@@ -3,8 +3,8 @@ package module07.task5;
 import java.util.*;
 
 public class Main {
-    public static final int POW_3 = 10;
-    public static final int POW_5 = 1000;
+    public static final int POW_3 = 1000;
+    public static final int POW_5 = 100000;
 
     public static long doOperation(List list, String operation, int steps) {
         Calendar counterStart;
@@ -38,7 +38,7 @@ public class Main {
         if (operation.charAt(0) == 'r') {
             counterStart = Calendar.getInstance();
             for (int i = 0; i < steps; i++) {
-                list.remove(i);
+                list.remove(0);
             }
             counterFinish = Calendar.getInstance();
             timeInMillis = counterFinish.getTimeInMillis() - counterStart.getTimeInMillis();
