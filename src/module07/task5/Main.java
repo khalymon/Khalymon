@@ -43,6 +43,7 @@ public class Main {
             counterFinish = Calendar.getInstance();
             timeInMillis = counterFinish.getTimeInMillis() - counterStart.getTimeInMillis();
         }
+
         return timeInMillis;
     }
 
