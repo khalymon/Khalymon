@@ -61,10 +61,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        //    List<User> userList = new LinkedList<User>();
-        List<Order> orderList;// = new LinkedList<Order>();
-        //    Set<User> userSet = new TreeSet<User>();
-        Set<Order> orderSet;// = new TreeSet<Order>();
+        List<Order> orderList;
+        Set<Order> orderSet;
         List<Order> orderListTmp;
         Set<Order> orderSetTmp;
         List<Order> orderListUSD;
@@ -147,9 +145,7 @@ public class Main {
         orderListTmp = new LinkedList<Order>();
         orderListUSD = new LinkedList<Order>();
         orderListUAH = new LinkedList<Order>();
-        //   Collections.addAll(userList, users);
         Collections.addAll(orderList, orders);
-        //    Collections.addAll(userSet, users,  byOrderPriceDecreasing);
         Collections.addAll(orderSet, orders);
 
 //        printSeparator("=");
