@@ -67,6 +67,8 @@ public class Main {
         Set<Order> orderSet;// = new TreeSet<Order>();
         List<Order> orderListTmp;
         Set<Order> orderSetTmp;
+        List<Order> orderListUSD;
+        List<Order> orderListUAH;
 
         Comparator byOrderPriceDecreasing = new Comparator() {
             @Override
@@ -142,6 +144,8 @@ public class Main {
         orderList = new LinkedList<Order>();
         orderSetTmp = new TreeSet<Order>();
         orderListTmp = new LinkedList<Order>();
+        orderListUSD = new LinkedList<Order>();
+        orderListUAH = new LinkedList<Order>();
         //   Collections.addAll(userList, users);
         Collections.addAll(orderList, orders);
         //    Collections.addAll(userSet, users,  byOrderPriceDecreasing);
@@ -170,16 +174,14 @@ public class Main {
         printSeparator("-");
         Collections.sort(orderList);
         orderListTmp.add(orderList.get(0));
-        Order OrderTmp;
+        Order orderTmp;
         for (int i = 1; i < orderList.size(); i++) {
-            OrderTmp = orderList.get(i);
-            //   orderSetTmp.add(OrderTmp);
-            if (!orderSetTmp.contains(OrderTmp)) {
-                orderSetTmp.add(OrderTmp);
-                orderListTmp.add(OrderTmp);
+            orderTmp = orderList.get(i);
+            if (!orderSetTmp.contains(orderTmp)) {
+                orderSetTmp.add(orderTmp);
+                orderListTmp.add(orderTmp);
             }
         }
-        System.out.println("Here.");
         System.out.println(Order.ordersCollectionToString(orderListTmp));
         orderList = new LinkedList<Order>(orderListTmp);
         orderListTmp.clear();
@@ -194,7 +196,20 @@ public class Main {
 
         System.out.println("[orderList]. Separating through the currency...");
         printSeparator("-");
-        System.out.println("Here.");
+        for (int i = 0; i < orderList.size(); i++) {
+            orderTmp = orderList.get(i);
+            if(orderTmp.getCurrency().equals(USD)){
+                orderListUSD.add(orderTmp);
+            }
+            if(orderTmp.getCurrency().equals(UAH)){
+                orderListUAH.add(orderTmp);
+            }
+        }
+        System.out.println("[orderListUSD]:\n");
+        System.out.println(Order.ordersCollectionToString(orderListUSD));
+        printSeparator("-");
+        System.out.println("[orderListUAH]:\n");
+        System.out.println(Order.ordersCollectionToString(orderListUAH));
         printSeparator("=");
 
         System.out.println("[orderList]. Separating through the cities...");
