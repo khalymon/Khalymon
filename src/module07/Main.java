@@ -69,6 +69,7 @@ public class Main {
         Set<Order> orderSetTmp;
         List<Order> orderListUSD;
         List<Order> orderListUAH;
+        List<Order> [] orderListByCities;
 
         Comparator byOrderPriceDecreasing = new Comparator() {
             @Override
@@ -194,7 +195,7 @@ public class Main {
         System.out.println(Order.ordersCollectionToString(orderList));
         printSeparator("=");
 
-        System.out.println("[orderList]. Separating through the currency...");
+        System.out.println("[orderList]. Separating by currency...");
         printSeparator("-");
         for (int i = 0; i < orderList.size(); i++) {
             orderTmp = orderList.get(i);
@@ -212,7 +213,7 @@ public class Main {
         System.out.println(Order.ordersCollectionToString(orderListUAH));
         printSeparator("=");
 
-        System.out.println("[orderList]. Separating through the cities...");
+        System.out.println("[orderList]. Separating by cities...");
         printSeparator("-");
         System.out.println("Here.");
         printSeparator("=");
