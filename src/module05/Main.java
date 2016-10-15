@@ -18,11 +18,9 @@ public class Main {
 //        System.out.println();
         if (rooms != null) {
             if (rooms.size() != 0) {
-                for (Room aList : rooms) {
-                    if (aList != null) {
-                        System.out.println(aList.toString());
-                    }
-                }
+                rooms.stream().filter(aList -> aList != null).forEachOrdered(aList -> {
+                    System.out.println(aList.toString());
+                });
             } else {
                 System.out.print("There's no such rooms.");
             }
