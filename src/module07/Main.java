@@ -12,7 +12,7 @@ public class Main {
             new User(1001L, "Andriy", "Symyrenko", "Kyiv", 1900_000_000),
             new User(1002L, "Petro", "Symyrenko", "Kharkiv", 1800_000_000),
             new User(1003L, "Petro", "Symyrenko", "Paris", 1800_000_000),
-            new User(1004L, "Petro", "Symyrenko", "Lviv", 1800_000_000),
+            new User(1004L, "Petro", "Symyrenko", "Kharkiv", 1800_000_000),
             new User(1005L, "Petro", "Symyrenko", "Kyiv", 1800_000_000),
             new User(1006L, "Andriy", "Petrov", "Lviv", 1200_000_000),
             new User(1007L, "Andriy", "Petrov", "Kyiv", 1200_000_000),
@@ -67,7 +67,9 @@ public class Main {
         Set<Order> orderSetTmp;
         List<Order> orderListUSD;
         List<Order> orderListUAH;
-        List<Order> [] orderListByCities;
+        List<List<Order>> orderListByCities;
+        Set<String> citiesSet;
+        List<String> citiesList;
 
         Comparator byOrderPriceDecreasing = new Comparator() {
             @Override
@@ -147,6 +149,8 @@ public class Main {
         orderListUAH = new LinkedList<Order>();
         Collections.addAll(orderList, orders);
         Collections.addAll(orderSet, orders);
+        citiesSet = new TreeSet<String>();
+        citiesList = new ArrayList<String>();
 
 //        printSeparator("=");
 //        System.out.println("[orderList] sorted by natural compareTo():");
@@ -195,10 +199,10 @@ public class Main {
         printSeparator("-");
         for (int i = 0; i < orderList.size(); i++) {
             orderTmp = orderList.get(i);
-            if(orderTmp.getCurrency().equals(USD)){
+            if (orderTmp.getCurrency().equals(USD)) {
                 orderListUSD.add(orderTmp);
             }
-            if(orderTmp.getCurrency().equals(UAH)){
+            if (orderTmp.getCurrency().equals(UAH)) {
                 orderListUAH.add(orderTmp);
             }
         }
@@ -211,7 +215,27 @@ public class Main {
 
         System.out.println("[orderList]. Separating by cities...");
         printSeparator("-");
-        System.out.println("Here.");
+        for (int i = 0; i < orderList.size(); i++) {
+            citiesSet.add(orderList.get(i).getUser().getCity());
+        }
+        citiesList.addAll(citiesSet);
+        orderListByCities = new ArrayList<List<Order>>();
+        for (int i = 0; i < citiesList.size(); i++) {
+            orderListByCities.add(null);
+        }
+        for (int i = 0; i < orderList.size(); i++) {
+            orderTmp = orderList.get(i);
+            for (int j = 0; j < orderListByCities.size(); j++) {
+                if (orderTmp.getUser().getCity().equals(citiesList.get(j))) {
+                    orderListByCities.get(j).add(orderTmp);
+                }
+            }
+        }
+        for (int i = 0; i < orderListByCities.size(); i++) {
+            System.out.println("List with "+ citiesList.get(i) +" city:\n");
+            System.out.println(Order.ordersCollectionToString(orderListByCities.get(i)));
+            printSeparator("-");
+        }
         printSeparator("=");
 
         System.out.println("[orderSet]. orderUserLastNameCheck(orderSet, \"Petrov\") == " +
