@@ -43,9 +43,6 @@ public class Main {
             counterFinish = Calendar.getInstance();
             timeInMillis = counterFinish.getTimeInMillis() - counterStart.getTimeInMillis();
         }
-//        System.out.println(list.getClass().getName() + " " + list.get(0).getClass().getCanonicalName() +
-//                ", operation " + operation +
-//                ", " + steps + " elements takes... " + timeInMillis + " ms");
         return timeInMillis;
     }
 
@@ -59,38 +56,6 @@ public class Main {
         List<String> stringLinkedListPow3 = new LinkedList<String>();
         List<String> stringLinkedListPow5 = new LinkedList<String>();
         long timeInMillis;
-
-//        counterStart = Calendar.getInstance();
-//        for (int i = 0; i < POW_3; i++) {
-//            integerArrayListPow3.add(i);
-//        }
-//        counterFinish = Calendar.getInstance();
-//        timeInMillis = counterFinish.getTimeInMillis() - counterStart.getTimeInMillis();
-//        System.out.println("integerArrayListPow3.add(i) takes... " + timeInMillis + " ms");
-//
-//        counterStart = Calendar.getInstance();
-//        for (int i = 0; i < POW_5; i++) {
-//            integerArrayListPow5.add(i);
-//        }
-//        counterFinish = Calendar.getInstance();
-//        timeInMillis = counterFinish.getTimeInMillis() - counterStart.getTimeInMillis();
-//        System.out.println("integerArrayListPow5.add(i) takes... " + timeInMillis + " ms");
-//
-//        counterStart = Calendar.getInstance();
-//        for (int i = 0; i < POW_3; i++) {
-//            integerLinkedListPow3.add(i);
-//        }
-//        counterFinish = Calendar.getInstance();
-//        timeInMillis = counterFinish.getTimeInMillis() - counterStart.getTimeInMillis();
-//        System.out.println("integerLinkedListPow3.add(i) takes... " + timeInMillis + " ms");
-//
-//        counterStart = Calendar.getInstance();
-//        for (int i = 0; i < POW_5; i++) {
-//            integerLinkedListPow5.add(i);
-//        }
-//        counterFinish = Calendar.getInstance();
-//        timeInMillis = counterFinish.getTimeInMillis() - counterStart.getTimeInMillis();
-//        System.out.println("integerLinkedListPow5.add(i) takes... " + timeInMillis + " ms");
 
         timeInMillis = doOperation(integerArrayListPow3, "add", POW_3);
         System.out.println("integerArrayListPow3.add() takes... " + timeInMillis + " ms");
