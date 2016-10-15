@@ -1,4 +1,4 @@
-package module05.homework;
+package module05;
 
 import java.util.Arrays;
 

@@ -1,21 +1,21 @@
-package module05.homework;
+package module05;
 
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class TripAdvisorAPI implements API {
+public class BookingComAPI implements API {
 
     private Room[] rooms;
 
-    public TripAdvisorAPI() {
+    public BookingComAPI() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(2016, Month.SEPTEMBER.getValue(), 1);
         rooms = new Room[]{
-                new Room(1000L, 1500, 2, calendar.getTime(), "Royal", "Paris"),
-                new Room(1001L, 1000, 1, calendar.getTime(), "Royal", "London"),
-                new Room(1002L, 2500, 2, calendar.getTime(), "Intercontinental", "Paris"),
+                new Room(1100L, 1500, 2, calendar.getTime(), "Royal", "Paris"),
+                new Room(1101L, 1000, 1, calendar.getTime(), "Royal", "London"),
+                new Room(1102L, 2500, 2, calendar.getTime(), "Intercontinental", "Paris"),
         };
     }
 
@@ -34,4 +34,5 @@ public class TripAdvisorAPI implements API {
     public Room[] getAll() {
         return rooms;
     }
+
 }

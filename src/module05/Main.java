@@ -1,4 +1,4 @@
-package module05.homework;
+package module05;
 
 public class Main {
     public static void printRooms(Room[] rooms) {
