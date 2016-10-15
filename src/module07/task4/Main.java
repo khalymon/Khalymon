@@ -3,19 +3,7 @@ package module07.task4;
 import java.util.List;
 
 public class Main {
-    public static void printRooms(List<Room> rooms/*Room[] rooms*/) {
-//        if (rooms != null) {
-//            if (rooms.length != 0) {
-//                for (int i = 0; i < rooms.length; i++) {
-//                    if (rooms[i] != null) {
-//                        System.out.print(rooms[i].toString());
-//                    }
-//                }
-//            } else {
-//                System.out.print("There's no such rooms.");
-//            }
-//        }
-//        System.out.println();
+    public static void printRooms(List<Room> rooms) {
         if (rooms != null) {
             if (rooms.size() != 0) {
                 rooms.stream().filter(aList -> aList != null).forEachOrdered(aList -> {
