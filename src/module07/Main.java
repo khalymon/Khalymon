@@ -17,7 +17,7 @@ public class Main {
             new User(1006L, "Andriy", "Petrov", "Lviv", 1200_000_000),
             new User(1007L, "Andriy", "Petrov", "Kyiv", 1200_000_000),
             new User(1008L, "Petro", "Petrov", "Lviv", 1000_000_000),
-            new User(1008L, "Petro", "Petrov", "Kyiv", 1000_000_000),
+            new User(1008L, "Petro", "Petrov", "Lviv", 1000_000_000),
     };
 
     private static Order[] orders = {
@@ -60,15 +60,13 @@ public class Main {
         }
     }
 
-//    private static void deleteOrdersWithPriceLess(Collection<Order> orderCollection, int price) {
-//        orderCollection.removeIf(ord -> ord.getPrice() < 1500);
-//    }
-
     public static void main(String[] args) {
         //    List<User> userList = new LinkedList<User>();
         List<Order> orderList;// = new LinkedList<Order>();
         //    Set<User> userSet = new TreeSet<User>();
         Set<Order> orderSet;// = new TreeSet<Order>();
+        List<Order> orderListTmp;
+        Set<Order> orderSetTmp;
 
         Comparator byOrderPriceDecreasing = new Comparator() {
             @Override
@@ -142,17 +140,19 @@ public class Main {
 
         orderSet = new TreeSet<Order>(byOrderPriceDecreasing);
         orderList = new LinkedList<Order>();
+        orderSetTmp = new TreeSet<Order>();
+        orderListTmp = new LinkedList<Order>();
         //   Collections.addAll(userList, users);
         Collections.addAll(orderList, orders);
         //    Collections.addAll(userSet, users,  byOrderPriceDecreasing);
         Collections.addAll(orderSet, orders);
 
-        printSeparator("=");
-        System.out.println("[orderList] sorted by natural compareTo():");
-        printSeparator("-");
-        Collections.sort(orderList);
-        System.out.println(Order.ordersCollectionToString(orderList));
-        printSeparator("=");
+//        printSeparator("=");
+//        System.out.println("[orderList] sorted by natural compareTo():");
+//        printSeparator("-");
+//        Collections.sort(orderList);
+//        System.out.println(Order.ordersCollectionToString(orderList));
+//        printSeparator("=");
 
         System.out.println("[orderList]. Sorted byOrderPriceDecreasing:");
         printSeparator("-");
@@ -168,8 +168,22 @@ public class Main {
 
         System.out.println("[orderList]. Deleting duplicates...");
         printSeparator("-");
+        Collections.sort(orderList);
+        orderListTmp.add(orderList.get(0));
+        Order OrderTmp;
+        for (int i = 1; i < orderList.size(); i++) {
+            OrderTmp = orderList.get(i);
+            //   orderSetTmp.add(OrderTmp);
+            if (!orderSetTmp.contains(OrderTmp)) {
+                orderSetTmp.add(OrderTmp);
+                orderListTmp.add(OrderTmp);
+            }
+        }
         System.out.println("Here.");
-        System.out.println(Order.ordersCollectionToString(orderList));
+        System.out.println(Order.ordersCollectionToString(orderListTmp));
+        orderList = new LinkedList<Order>(orderListTmp);
+        orderListTmp.clear();
+        orderSetTmp.clear();
         printSeparator("=");
 
         System.out.println("[orderList]. Deleting orders with price < 1500...");
