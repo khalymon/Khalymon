@@ -12,4 +12,7 @@ public interface AbstractDAO<T> {
 
     List<T> getList();
 
+    void deleteById(long id);
+
+    T get(long id);
 }
