@@ -1,8 +1,9 @@
 package module08;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class AbstractDAOImpl<T> implements AbstractDAO  {
+public class AbstractDAOImpl<T> implements AbstractDAO<T> {
     @Override
     public T save(T t) {
         System.out.println(t.getClass().getSimpleName() + " " + t.toString() + " has been saved.");
@@ -15,22 +16,30 @@ public class AbstractDAOImpl<T> implements AbstractDAO  {
     }
 
     @Override
-    public void saveAll(List list) {
-
+    public void saveAll(List<T> tList) {
+        System.out.println(tList.getClass().getSimpleName() + " " + tList.toString() + " has been deleted.");
     }
 
     @Override
-    public List getList() {
-        return null;
+    public List<T> getList() {
+        List<T> tList = new ArrayList<T>();
+        return tList;
     }
 
     @Override
     public void deleteById(long id) {
-
+        System.out.println("Item with id=" + id + " has been deleted.");
     }
 
     @Override
-    public Object get(long id) {
+    public T get(long id) {
+        List<T> tList = new ArrayList<T>();
+        for (T t : tList) {
+            if (t.hashCode() == id) {
+                return t;
+            }
+        }
         return null;
     }
+
 }
