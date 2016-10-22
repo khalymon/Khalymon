@@ -1,7 +1,6 @@
 package module09;
 
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -143,8 +142,6 @@ public class Main {
         printSeparator("-");
         orderList = new ArrayList<>(orderList.stream().collect(Collectors.toMap(p -> p, p -> p, (p, q) -> p)).values());
         Collections.sort(orderList);
-        //orderList.stream().distinct();
-        // orderList = orderList.stream().map(Order::new,Function.identity()).collect(Collectors.toList());
         System.out.println(Order.ordersCollectionToString(orderList));
         printSeparator("=");
 
