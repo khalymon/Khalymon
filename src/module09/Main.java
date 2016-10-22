@@ -161,7 +161,9 @@ public class Main {
         orderListByCities = new ArrayList<List<Order>>();
         //Function<? super Order, String> getCity;
         // orderList.stream().collect(Collectors.groupingBy(Function.identity(), Function.identity().getUser().getCity()));
-        orderListByCities = orderList.stream().collect(Collectors.groupingBy(p -> p.getUser().getCity()));
+       // orderListByCities = orderList.stream().collect(Collectors.groupingBy(p -> p.getUser().getCity()));
+        System.out.println(orderList.stream().collect(Collectors.groupingBy(p -> p.getUser().getCity())).toString());
+       // orderList.stream().collect(Collectors.groupingBy(p -> p.getUser().getCity())).toString();
 
         printSeparator("=");
 
