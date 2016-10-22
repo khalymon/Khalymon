@@ -1,4 +1,4 @@
-package module09.task123;
+package module09;
 
 public enum Currency {
     USD,
