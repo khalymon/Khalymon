@@ -1,7 +1,6 @@
 package module09;
 
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -42,11 +41,6 @@ public class Main {
     public static void main(String[] args) {
         List<Order> orderList;
         Set<Order> orderSet;
-        List<Order> orderListUSD;
-        List<Order> orderListUAH;
-        List<List<Order>> orderListByCities;
-        Set<String> citiesSet;
-        List<String> citiesList;
 
         Comparator byOrderPriceDecreasing = new Comparator() {
             @Override
@@ -120,12 +114,8 @@ public class Main {
 
         orderSet = new TreeSet<Order>(byOrderPriceDecreasing);
         orderList = new LinkedList<Order>();
-        orderListUSD = new LinkedList<Order>();
-        orderListUAH = new LinkedList<Order>();
         Collections.addAll(orderList, orders);
         Collections.addAll(orderSet, orders);
-        citiesSet = new TreeSet<String>();
-        citiesList = new ArrayList<String>();
 
         System.out.println("[orderList]. Sorted byOrderPriceDecreasing:");
         printSeparator("-");
