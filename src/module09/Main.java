@@ -199,9 +199,8 @@ public class Main {
         printSeparator("=");
 
         System.out.println("[orderSet]. Order largest price: ");
-        //????????????????????????????????????
-        //System.out.println(orderSet.iterator().next().getPrice());
-        //int i = orderSet.stream().max(byOrderPriceDecreasing).get();
+        printSeparator("-");
+        System.out.println(((Order) orderSet.stream().min(byOrderPriceDecreasing).get()).getPrice());
         printSeparator("=");
 
         System.out.println("[orderSet]. Deleting orders with currency = USD...");
