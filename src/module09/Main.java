@@ -140,21 +140,12 @@ public class Main {
 
         orderSet = new TreeSet<Order>(byOrderPriceDecreasing);
         orderList = new LinkedList<Order>();
-        orderSetTmp = new TreeSet<Order>();
-        orderListTmp = new LinkedList<Order>();
         orderListUSD = new LinkedList<Order>();
         orderListUAH = new LinkedList<Order>();
         Collections.addAll(orderList, orders);
         Collections.addAll(orderSet, orders);
         citiesSet = new TreeSet<String>();
         citiesList = new ArrayList<String>();
-
-//        printSeparator("=");
-//        System.out.println("[orderList] sorted by natural compareTo():");
-//        printSeparator("-");
-//        Collections.sort(orderList);
-//        System.out.println(Order.ordersCollectionToString(orderList));
-//        printSeparator("=");
 
         System.out.println("[orderList]. Sorted byOrderPriceDecreasing:");
         printSeparator("-");
@@ -171,19 +162,8 @@ public class Main {
         System.out.println("[orderList]. Deleting duplicates...");
         printSeparator("-");
         Collections.sort(orderList);
-        orderListTmp.add(orderList.get(0));
-        Order orderTmp;
-        for (int i = 1; i < orderList.size(); i++) {
-            orderTmp = orderList.get(i);
-            if (!orderSetTmp.contains(orderTmp)) {
-                orderSetTmp.add(orderTmp);
-                orderListTmp.add(orderTmp);
-            }
-        }
-        System.out.println(Order.ordersCollectionToString(orderListTmp));
-        orderList = new LinkedList<Order>(orderListTmp);
-        orderListTmp.clear();
-        orderSetTmp.clear();
+        // orderList.stream().
+        System.out.println(Order.ordersCollectionToString(orderList));
         printSeparator("=");
 
         System.out.println("[orderList]. Deleting orders with price < 1500...");
@@ -229,23 +209,25 @@ public class Main {
             }
         }
         for (int i = 0; i < orderListByCities.size(); i++) {
-            System.out.println("List with "+ citiesList.get(i) +" city:\n");
+            System.out.println("List with " + citiesList.get(i) + " city:\n");
             System.out.println(Order.ordersCollectionToString(orderListByCities.get(i)));
             printSeparator("-");
         }
         printSeparator("=");
 
-        System.out.println("[orderSet]. orderUserLastNameCheck(orderSet, \"Petrov\") == " +
-                orderUserLastNameCheck(orderSet, "Petrov"));
+        System.out.println("[orderSet]. orderUserLastNameCheck(orderSet, \"Petrov\") == "
+                + orderSet.stream().anyMatch(s -> s.getUser().getLastName().equals("Petrov")));
         printSeparator("=");
 
         System.out.println("[orderSet]. Order largest price: ");
-        System.out.println(orderSet.iterator().next().getPrice());
+        //System.out.println(orderSet.iterator().next().getPrice());
+        System.out.println(orderSet.stream().max(Order::compareTo));
         printSeparator("=");
 
         System.out.println("[orderSet]. Deleting orders with currency = USD...");
         printSeparator("-");
-        deleteOrdersWithCurrency(orderSet, Currency.USD);
+        //  deleteOrdersWithCurrency(orderSet, Currency.USD);
+        orderSet.stream().filter(s -> !s.getCurrency().equals(Currency.USD));
         System.out.println(Order.ordersCollectionToString(orderSet));
         printSeparator("=");
     }
