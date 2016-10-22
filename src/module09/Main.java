@@ -159,13 +159,9 @@ public class Main {
         System.out.println("[orderList]. Separating by cities...");
         printSeparator("-");
         orderListByCities = new ArrayList<List<Order>>();
-        Function<? super Order, String> getCity;
-        orderListByCities
-                .stream()
-                .collect(orderList
-                        .stream()
-                        .collect(Collectors
-                                .groupingBy(p, p.getUser().getCity())));
+        //Function<? super Order, String> getCity;
+        // orderList.stream().collect(Collectors.groupingBy(Function.identity(), Function.identity().getUser().getCity()));
+        orderListByCities = orderList.stream().collect(Collectors.groupingBy(p -> p.getUser().getCity()));
 
         printSeparator("=");
 
