@@ -1,6 +1,7 @@
 package module09;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -141,7 +142,9 @@ public class Main {
 
         System.out.println("[orderList]. Deleting duplicates...");
         printSeparator("-");
-        orderList.stream().distinct();
+        orderList.stream().collect(Collectors.toMap(p->p, p->p));
+        ;
+        //orderList.stream().distinct();
         System.out.println(Order.ordersCollectionToString(orderList));
         printSeparator("=");
 
