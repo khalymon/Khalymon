@@ -27,7 +27,7 @@ public class Main {
             new Order(9006L, 40_000_000, Currency.UAH, "coconut", "Billa", users[6]),
             new Order(9007L, 1_000_000, Currency.USD, "coconut", "Billa", users[7]),
             new Order(9008L, 40_000_000, Currency.UAH, "coconut", "Billa", users[8]),
-            new Order(9008L, 40_000_000, Currency.UAH, "coconut", "Billa", users[9]),
+            new Order(9008L, 40_000_000, Currency.UAH, "coconut", "Billa", users[8]),
     };
 
     private static void printSeparator(String s) {
@@ -37,31 +37,9 @@ public class Main {
         System.out.println();
     }
 
-    private static boolean orderUserLastNameCheck(Collection<Order> orderCollection, String lastName) {
-        for (Order element : orderCollection) {
-            if (element.getUser().getLastName().equals(lastName)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static void deleteOrdersWithCurrency(Collection<Order> orderCollection, Currency currency) {
-        Iterator<Order> iterator = orderCollection.iterator();
-        Order order;
-        while (iterator.hasNext()) {
-            order = iterator.next();
-            if (order.getCurrency().equals(currency)) {
-                iterator.remove();
-            }
-        }
-    }
-
     public static void main(String[] args) {
         List<Order> orderList;
         Set<Order> orderSet;
-        List<Order> orderListTmp;
-        Set<Order> orderSetTmp;
         List<Order> orderListUSD;
         List<Order> orderListUAH;
         List<List<Order>> orderListByCities;
@@ -159,10 +137,11 @@ public class Main {
         System.out.println(Order.ordersCollectionToString(orderList));
         printSeparator("=");
 
+        Collections.sort(orderList);
+
         System.out.println("[orderList]. Deleting duplicates...");
         printSeparator("-");
-        Collections.sort(orderList);
-        // orderList.stream().
+        orderList.stream().distinct();
         System.out.println(Order.ordersCollectionToString(orderList));
         printSeparator("=");
 
@@ -221,12 +200,14 @@ public class Main {
 
         System.out.println("[orderSet]. Order largest price: ");
         //System.out.println(orderSet.iterator().next().getPrice());
-        System.out.println(orderSet.stream().max(Order::compareTo));
+        //int i = orderSet.stream().max(byOrderPriceDecreasing).get();
+
+
+        System.out.println();
         printSeparator("=");
 
         System.out.println("[orderSet]. Deleting orders with currency = USD...");
         printSeparator("-");
-        //  deleteOrdersWithCurrency(orderSet, Currency.USD);
         orderSet.stream().filter(s -> !s.getCurrency().equals(Currency.USD));
         System.out.println(Order.ordersCollectionToString(orderSet));
         printSeparator("=");
