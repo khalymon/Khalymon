@@ -1,6 +1,7 @@
 package module09;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -153,48 +154,14 @@ public class Main {
 
         System.out.println("[orderList]. Separating by currency...");
         printSeparator("-");
-//        for (int i = 0; i < orderList.size(); i++) {
-//            orderTmp = orderList.get(i);
-//            if (orderTmp.getCurrency().equals(Currency.USD)) {
-//                orderListUSD.add(orderTmp);
-//            }
-//            if (orderTmp.getCurrency().equals(Currency.UAH)) {
-//                orderListUAH.add(orderTmp);
-//            }
-//        }
-/*        System.out.println("[orderListUSD]:\n");
-        System.out.println(Order.ordersCollectionToString(orderListUSD));
-        printSeparator("-");
-        System.out.println("[orderListUAH]:\n");
-        System.out.println(Order.ordersCollectionToString(orderListUAH));*/
         printSeparator("=");
 
         System.out.println("[orderList]. Separating by cities...");
         printSeparator("-");
         orderListByCities = new ArrayList<List<Order>>();
-        //orderList.stream().forEach(q->orderList.stream().filter(p->p.getUser().getCity().equals(q)));
-        orderListByCities.stream().collect(orderList.stream().collect(Collectors.groupingBy((Order::getUser)::getCity)));
-/*        for (int i = 0; i < orderList.size(); i++) {
-            citiesSet.add(orderList.get(i).getUser().getCity());
-        }
-        citiesList.addAll(citiesSet);
-        orderListByCities = new ArrayList<List<Order>>();
-        for (int i = 0; i < citiesList.size(); i++) {
-            orderListByCities.add(new ArrayList<Order>());
-        }*/
-//        for (int i = 0; i < orderList.size(); i++) {
-//            orderTmp = orderList.get(i);
-//            for (int j = 0; j < orderListByCities.size(); j++) {
-//                if (orderTmp.getUser().getCity().equals(citiesList.get(j))) {
-//                    orderListByCities.get(j).add(orderTmp);
-//                }
-//            }
-//        }
-/*        for (int i = 0; i < orderListByCities.size(); i++) {
-            System.out.println("List with " + citiesList.get(i) + " city:\n");
-            System.out.println(Order.ordersCollectionToString(orderListByCities.get(i)));
-            printSeparator("-");
-        }*/
+        Function<? super Order, String> getCity;
+        orderListByCities.stream().collect(orderList.stream().collect(Collectors.groupingBy(getCity)));
+
         printSeparator("=");
 
         System.out.println("[orderSet]. orderUserLastNameCheck(orderSet, \"Petrov\") == "
