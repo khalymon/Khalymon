@@ -142,9 +142,9 @@ public class Main {
 
         System.out.println("[orderList]. Deleting duplicates...");
         printSeparator("-");
-
-        orderList = (List<Order>) orderList.stream().collect(Collectors.toMap(p -> p, p -> p)).values();
+        // orderList = (List<Order>) orderList.stream().collect(Collectors.toMap(p -> p, p -> p)).values();
         //orderList.stream().distinct();
+        orderList = orderList.stream().map(p -> p).collect(Collectors.toList());
         System.out.println(Order.ordersCollectionToString(orderList));
         printSeparator("=");
 
