@@ -174,15 +174,15 @@ public class Main {
 
         System.out.println("[orderList]. Separating by currency...");
         printSeparator("-");
-        for (int i = 0; i < orderList.size(); i++) {
-            orderTmp = orderList.get(i);
-            if (orderTmp.getCurrency().equals(Currency.USD)) {
-                orderListUSD.add(orderTmp);
-            }
-            if (orderTmp.getCurrency().equals(Currency.UAH)) {
-                orderListUAH.add(orderTmp);
-            }
-        }
+//        for (int i = 0; i < orderList.size(); i++) {
+//            orderTmp = orderList.get(i);
+//            if (orderTmp.getCurrency().equals(Currency.USD)) {
+//                orderListUSD.add(orderTmp);
+//            }
+//            if (orderTmp.getCurrency().equals(Currency.UAH)) {
+//                orderListUAH.add(orderTmp);
+//            }
+//        }
         System.out.println("[orderListUSD]:\n");
         System.out.println(Order.ordersCollectionToString(orderListUSD));
         printSeparator("-");
@@ -200,14 +200,14 @@ public class Main {
         for (int i = 0; i < citiesList.size(); i++) {
             orderListByCities.add(new ArrayList<Order>());
         }
-        for (int i = 0; i < orderList.size(); i++) {
-            orderTmp = orderList.get(i);
-            for (int j = 0; j < orderListByCities.size(); j++) {
-                if (orderTmp.getUser().getCity().equals(citiesList.get(j))) {
-                    orderListByCities.get(j).add(orderTmp);
-                }
-            }
-        }
+//        for (int i = 0; i < orderList.size(); i++) {
+//            orderTmp = orderList.get(i);
+//            for (int j = 0; j < orderListByCities.size(); j++) {
+//                if (orderTmp.getUser().getCity().equals(citiesList.get(j))) {
+//                    orderListByCities.get(j).add(orderTmp);
+//                }
+//            }
+//        }
         for (int i = 0; i < orderListByCities.size(); i++) {
             System.out.println("List with " + citiesList.get(i) + " city:\n");
             System.out.println(Order.ordersCollectionToString(orderListByCities.get(i)));
