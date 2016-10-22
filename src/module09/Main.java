@@ -139,11 +139,10 @@ public class Main {
         System.out.println(Order.ordersCollectionToString(orderList));
         printSeparator("=");
 
-        Collections.sort(orderList);
-
         System.out.println("[orderList]. Deleting duplicates...");
         printSeparator("-");
-        orderList = (List<Order>) orderList.stream().collect(Collectors.toMap(p -> p, p -> p, (p, q) -> p)).values();
+        orderList = new ArrayList<>(orderList.stream().collect(Collectors.toMap(p -> p, p -> p, (p, q) -> p)).values());
+        Collections.sort(orderList);
         //orderList.stream().distinct();
         // orderList = orderList.stream().map(Order::new,Function.identity()).collect(Collectors.toList());
         System.out.println(Order.ordersCollectionToString(orderList));
