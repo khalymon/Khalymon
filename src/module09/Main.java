@@ -160,7 +160,12 @@ public class Main {
         printSeparator("-");
         orderListByCities = new ArrayList<List<Order>>();
         Function<? super Order, String> getCity;
-        orderListByCities.stream().collect(orderList.stream().collect(Collectors.groupingBy(getCity)));
+        orderListByCities
+                .stream()
+                .collect(orderList
+                        .stream()
+                        .collect(Collectors
+                                .groupingBy(p, p.getUser().getCity())));
 
         printSeparator("=");
 
