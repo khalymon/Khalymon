@@ -154,17 +154,12 @@ public class Main {
 
         System.out.println("[orderList]. Separating by currency...");
         printSeparator("-");
+        System.out.println(orderList.stream().collect(Collectors.groupingBy(Order::getCurrency)).toString());
         printSeparator("=");
 
         System.out.println("[orderList]. Separating by cities...");
         printSeparator("-");
-        orderListByCities = new ArrayList<List<Order>>();
-        //Function<? super Order, String> getCity;
-        // orderList.stream().collect(Collectors.groupingBy(Function.identity(), Function.identity().getUser().getCity()));
-       // orderListByCities = orderList.stream().collect(Collectors.groupingBy(p -> p.getUser().getCity()));
         System.out.println(orderList.stream().collect(Collectors.groupingBy(p -> p.getUser().getCity())).toString());
-       // orderList.stream().collect(Collectors.groupingBy(p -> p.getUser().getCity())).toString();
-
         printSeparator("=");
 
         System.out.println("[orderSet]. orderUserLastNameCheck(orderSet, \"Petrov\") == "
