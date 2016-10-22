@@ -172,8 +172,8 @@ public class Main {
         System.out.println("[orderList]. Separating by cities...");
         printSeparator("-");
         orderListByCities = new ArrayList<List<Order>>();
-        orderList.stream().forEach(q->orderList.stream().filter(p->p.getUser().getCity().equals(q)));
-
+        //orderList.stream().forEach(q->orderList.stream().filter(p->p.getUser().getCity().equals(q)));
+        orderListByCities.stream().collect(orderList.stream().collect(Collectors.groupingBy((Order::getUser)::getCity)));
 /*        for (int i = 0; i < orderList.size(); i++) {
             citiesSet.add(orderList.get(i).getUser().getCity());
         }
