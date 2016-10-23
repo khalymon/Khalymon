@@ -2,6 +2,13 @@ package module10.task3;
 
 public class Main {
     public static void main(String[] args) {
-        //System.out.println("Here.");
+        Object object;
+        object = null;
+        try{
+        System.out.println(object.toString());
+        }
+        catch (NullPointerException npe){
+            System.out.println("NullPointerException has been occurred.");
+        }
     }
 }
