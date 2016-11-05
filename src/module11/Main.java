@@ -10,7 +10,7 @@ public class Main {
         StringManipulator stringManipulator = new StringManipulator(new File("src\\module11\\iofile.txt"));
         //   System.out.println(stringManipulator.replacer(map));
         //   stringManipulator.fileContentReplacer(map);
-        stringManipulator.fileContentMerger(map);
+        //   stringManipulator.fileContentMerger(map);
         System.out.println("Here.");
     }
 }
