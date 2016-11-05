@@ -182,7 +182,6 @@ public class StringManipulator {
 //        String[][] textReplaceTo;
 //        String[][] textResult;
 
-
         int lengthDifference;
 
         //Charset charset = Charset.forName("UTF-8");
@@ -246,6 +245,38 @@ public class StringManipulator {
     }
 
     int checkWord(String word) {
-        return 0;
+
+        int resultCounter = 0;
+        String StringReplaceTo = null;
+        String[] wordsReplaceTo;
+
+        try {
+            InputStream inputStream = new FileInputStream(file);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String line = null;
+            if ((line = reader.readLine()) != null) {
+                StringReplaceTo = line;
+            }
+            reader.close();
+        } catch (IOException ioe) {
+            System.out.println(ioe.getMessage());
+        }
+
+        if (StringReplaceTo == null) {
+            return 0;
+        }
+        wordsReplaceTo = StringReplaceTo.split(" ");
+
+        if (wordsReplaceTo == null) {
+            return 0;
+        }
+
+        for (int i = 0; i < wordsReplaceTo.length; i++) {
+            if (wordsReplaceTo[i].equalsIgnoreCase(word)) {
+                resultCounter++;
+            }
+        }
+
+        return resultCounter;
     }
 }
