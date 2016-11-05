@@ -12,12 +12,23 @@ public class StringManipulator {
         this.file = file;
     }
 
+    /*
+    * replacer replaces words from the 1st line only
+    * other lines are ignored*
+    *
+    * */
     public String replacer(Map<String, String> map) {
-        String stringResult;
-        String[] wordsResult;
         String StringReplaceTo = null;
+        String stringResult;
+
         String[] wordsReplaceTo;
         String[] wordsReplaceWith;
+        String[] wordsResult;
+
+//        String[][] textReplaceTo;
+//        String[][] textResult;
+
+
         int lengthDifference;
 
         //Charset charset = Charset.forName("UTF-8");
@@ -26,9 +37,12 @@ public class StringManipulator {
             InputStream inputStream = new FileInputStream(file);
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             String line = null;
-            while ((line = reader.readLine()) != null) {
-                StringReplaceTo += line;
+            if ((line = reader.readLine()) != null) {
+                StringReplaceTo = line;
             }
+//            while ((line = reader.readLine()) != null) {
+//                StringReplaceTo += line;
+//            }
             reader.close();
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
