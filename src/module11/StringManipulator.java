@@ -67,7 +67,9 @@ public class StringManipulator {
 
         try {
             OutputStream outputStream = new FileOutputStream(file);
-            outputStream.write();
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream));
+            writer.flush();
+            writer.write(stringResult);
             //   StringReplaceTo = inputStream.toString();
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
