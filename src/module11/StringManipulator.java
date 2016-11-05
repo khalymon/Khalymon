@@ -32,20 +32,24 @@ public class StringManipulator {
 
         if (StringReplaceTo == null) {
             return null;
-        } else {
-            wordsReplaceTo = StringReplaceTo.split(" ");
         }
+        wordsReplaceTo = StringReplaceTo.split(" ");
         wordsReplaceWith = STRING_REPLACE_WITH.split(" ");
-
         lengthDifference = wordsReplaceTo.length - wordsReplaceWith.length;
 
         if (lengthDifference == 0) {
             wordsResult = wordsReplaceWith;
         }
-        if (lengthDifference < 0) {
-
+        if (lengthDifference > 0) {
+            wordsResult = wordsReplaceTo;
+            for (int i = 0; i < wordsReplaceWith.length; i++) {
+                wordsResult[i] = wordsReplaceWith[i];
+            }
         } else {
-
+            wordsResult = wordsReplaceTo;
+            for (int i = 0; i < wordsReplaceTo.length; i++) {
+                wordsResult[i] = wordsReplaceWith[i];
+            }
         }
 
 
