@@ -1,8 +1,6 @@
 package module11;
 
 import java.io.*;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
 import java.util.Map;
 
 public class StringManipulator {
@@ -22,7 +20,7 @@ public class StringManipulator {
         String[] wordsReplaceWith;
         int lengthDifference;
 
-        Charset charset = Charset.forName("UTF-8");
+        //Charset charset = Charset.forName("UTF-8");
 
         try {
             InputStream inputStream = new FileInputStream(file);
@@ -31,6 +29,7 @@ public class StringManipulator {
             while ((line = reader.readLine()) != null) {
                 StringReplaceTo += line;
             }
+            reader.close();
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }
@@ -68,9 +67,8 @@ public class StringManipulator {
         try {
             OutputStream outputStream = new FileOutputStream(file);
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream));
-            writer.flush();
             writer.write(stringResult);
-            //   StringReplaceTo = inputStream.toString();
+            writer.close();
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }
