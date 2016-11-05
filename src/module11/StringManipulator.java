@@ -77,15 +77,6 @@ public class StringManipulator {
             stringResult += (" " + wordsResult[i]);
         }
 
-//        try {
-//            OutputStream outputStream = new FileOutputStream(file);
-//            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream));
-//            writer.write(stringResult);
-//            writer.close();
-//        } catch (IOException ioe) {
-//            System.out.println(ioe.getMessage());
-//        }
-
         return stringResult;
     }
 
