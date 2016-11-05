@@ -1,12 +1,13 @@
 package module11;
 
-import java.io.*;
-import java.nio.charset.Charset;
-import java.util.HashMap;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map;
 
 public class StringManipulator {
-    private static final String replaceWith = "THE TRUTH IS OUT THERE";
+    private static final String STRING_REPLACE_WITH = "THE TRUTH IS OUT THERE";
 
     private File file;
 
@@ -15,19 +16,48 @@ public class StringManipulator {
     }
 
     public String replacer(Map<String, String> map) {
-        String key = null;
-        Charset charset = Charset.forName("UTF-8");
+        String stringResult;
+        String[] wordsResult = null;
+        String StringReplaceTo = null;
+        String[] wordsReplaceTo;
+        String[] wordsReplaceWith;
+        int lengthDifference;
 
         try {
             InputStream inputStream = new FileInputStream(file);
-            key = inputStream.toString();
+            StringReplaceTo = inputStream.toString();
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }
-        System.out.println(replaceWith);
-        map = new HashMap<>();
-        map.put(key, replaceWith);
-        return null;
+
+        if (StringReplaceTo == null) {
+            return null;
+        } else {
+            wordsReplaceTo = StringReplaceTo.split(" ");
+        }
+        wordsReplaceWith = STRING_REPLACE_WITH.split(" ");
+
+        lengthDifference = wordsReplaceTo.length - wordsReplaceWith.length;
+
+        if (lengthDifference == 0) {
+            wordsResult = wordsReplaceWith;
+        }
+        if (lengthDifference < 0) {
+
+        } else {
+
+        }
+
+
+        if (wordsResult == null) {
+            return null;
+        }
+        stringResult = wordsResult[0];
+        for (int i = 1; i < wordsResult.length; i++) {
+            stringResult += (" " + wordsResult[i]);
+        }
+
+        return stringResult;
     }
 
     public File fileContentReplacer(Map<String, String> map) {
