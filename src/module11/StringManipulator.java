@@ -1,9 +1,8 @@
 package module11;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
 import java.util.Map;
 
 public class StringManipulator {
@@ -17,15 +16,21 @@ public class StringManipulator {
 
     public String replacer(Map<String, String> map) {
         String stringResult;
-        String[] wordsResult = null;
+        String[] wordsResult;
         String StringReplaceTo = null;
         String[] wordsReplaceTo;
         String[] wordsReplaceWith;
         int lengthDifference;
 
+        Charset charset = Charset.forName("UTF-8");
+
         try {
             InputStream inputStream = new FileInputStream(file);
-            StringReplaceTo = inputStream.toString();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                StringReplaceTo += line;
+            }
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }
@@ -52,13 +57,20 @@ public class StringManipulator {
             }
         }
 
-
         if (wordsResult == null) {
             return null;
         }
         stringResult = wordsResult[0];
         for (int i = 1; i < wordsResult.length; i++) {
             stringResult += (" " + wordsResult[i]);
+        }
+
+        try {
+            OutputStream outputStream = new FileOutputStream(file);
+            outputStream.write();
+            //   StringReplaceTo = inputStream.toString();
+        } catch (IOException ioe) {
+            System.out.println(ioe.getMessage());
         }
 
         return stringResult;
